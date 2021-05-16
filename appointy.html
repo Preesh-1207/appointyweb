@@ -1,0 +1,4609 @@
+
+<!DOCTYPE html>
+
+
+<html><head><meta charset="UTF-8"><meta name="viewport" content="width=1440, maximum-scale=1.0"><link rel="shortcut icon" type="image/png" href="https://animaproject.s3.amazonaws.com/home/favicon.png"><meta name="og:type" content="website"><meta name="twitter:card" content="photo"><script id="anima-hotspots-script" src="hotspots.js"></script><script id="anima-overrides-script" src="overrides.js"></script><script src="https://animaapp.s3.amazonaws.com/js/timeline.js"></script><style>
+@import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,700,500');
+
+* {
+
+box-sizing: border-box;
+}
+.align-self-flex-center {
+
+align-self: flex-center;
+}
+.align-self-flex-end {
+
+align-self: flex-end;
+}
+.align-self-flex-start {
+
+align-self: flex-start;
+}
+.animate-nodelay {
+
+animation-delay: 0s;
+}
+.auto-animated .container-center-vertical,
+.auto-animated .container-center-horizontal {
+
+opacity: 1;
+}
+.auto-animated div {
+
+opacity: 0;
+position: absolute;
+--z-index: -1;
+}
+.component-wrapper * {
+
+box-sizing: border-box;
+-webkit-font-smoothing: antialiased;
+pointer-events: none
+}
+.component-wrapper a {
+
+text-decoration: none;
+display: contents;
+pointer-events: auto
+}
+.component-wrapper a *,
+.component-wrapper input,
+.component-wrapper video,
+.component-wrapper iframe {
+
+pointer-events: auto;
+}
+.component-wrapper.not-ready,
+.component-wrapper.not-ready * {
+
+visibility: hidden !important;
+}
+.container-center-horizontal {
+
+pointer-events: none;
+display: flex;
+flex-direction: row;
+justify-content: center;
+width: 100%;
+}
+.container-center-horizontal > * {
+
+pointer-events: auto;
+flex-shrink: 0;
+}
+.container-center-vertical {
+
+pointer-events: none;
+display: flex;
+flex-direction: row;
+align-items: center;
+height: 100%;
+}
+.container-center-vertical > * {
+
+pointer-events: auto;
+flex-shrink: 0;
+}
+.full-height-a {
+
+height: 100%;
+}
+.full-width-a {
+
+width: 100%;
+}
+.hidden,
+.hidden * {
+
+visibility: hidden;
+pointer-events: none;
+}
+.listeners-active,
+.listeners-active * {
+
+pointer-events: auto;
+}
+.listeners-active-click,
+.listeners-active-click * {
+
+cursor: pointer;
+}
+.overlay {
+
+position: absolute;
+opacity: 0;
+display: none;
+top: 0;
+width: 100%;
+height: 100%;
+position: fixed;
+}
+.overlay.animate-appear {
+
+opacity: 0;
+display: block;
+animation: reveal 0.3s ease-in-out 1 normal forwards;
+}
+.overlay.animate-disappear {
+
+opacity: 1;
+display: block;
+animation: reveal 0.3s ease-in-out 1 reverse forwards;
+}
+.screen * {
+
+box-sizing: border-box;
+-webkit-font-smoothing: antialiased;
+}
+.screen a {
+
+text-decoration: none;
+display: contents;
+}
+.screen div {
+
+-webkit-text-size-adjust: none;
+}
+.screen textarea:focus,
+.screen input:focus {
+
+outline: none;
+}
+.smart-layers-pointers,
+.smart-layers-pointers * {
+
+pointer-events: auto;
+visibility: visible;
+}
+.valign-text-bottom {
+
+display: flex;
+flex-direction: column;
+justify-content: flex-end;
+}
+.valign-text-middle {
+
+display: flex;
+flex-direction: column;
+justify-content: center;
+}
+@keyframes reveal {
+
+from {
+opacity: 0;
+}
+to {
+opacity: 1;
+}
+}
+input:focus {
+
+outline: none;
+}
+
+:root {
+  --black: #000000;
+  --chicago: #595959;
+  --gray: #818181;
+  --link-water: #dfe7fd70;
+  --mountain-mist: #949494;
+  --white: #ffffff;
+
+  --font-size-l: 17px;
+  --font-size-m: 15px;
+  --font-size-xl: 18px;
+  --font-size-xxl: 19px;
+  --font-size-xxxl: 20px;
+  --font-size-xxxxl: 22px;
+  --font-size-xxxxxl: 23px;
+  --font-size-xxxxxxl: 25px;
+  --font-size-xxxxxxxl: 35px;
+  --font-size-xxxxxxxxl: 40px;
+
+  --font-family-roboto: "Roboto", Helvetica;
+}
+.roboto-medium-black-20px {
+  color: var(--black);
+  font-family: var(--font-family-roboto);
+  font-size: var(--font-size-xxxl);
+  font-style: normal;
+  font-weight: 500;
+}
+.roboto-medium-black-15px {
+  color: var(--black);
+  font-family: var(--font-family-roboto);
+  font-size: var(--font-size-m);
+  font-style: normal;
+  font-weight: 500;
+}
+.roboto-normal-gray-18px {
+  color: var(--gray);
+  font-family: var(--font-family-roboto);
+  font-size: var(--font-size-xl);
+  font-style: normal;
+  font-weight: 400;
+}
+.roboto-normal-black-15px {
+  color: var(--black);
+  font-family: var(--font-family-roboto);
+  font-size: var(--font-size-m);
+  font-style: normal;
+  font-weight: 400;
+}
+.roboto-normal-black-18px {
+  color: var(--black);
+  font-family: var(--font-family-roboto);
+  font-size: var(--font-size-xl);
+  font-style: normal;
+  font-weight: 400;
+}
+.roboto-normal-gray-15px {
+  color: var(--gray);
+  font-family: var(--font-family-roboto);
+  font-size: var(--font-size-m);
+  font-style: normal;
+  font-weight: 400;
+}
+.roboto-bold-black-20px {
+  color: var(--black);
+  font-family: var(--font-family-roboto);
+  font-size: var(--font-size-xxxl);
+  font-style: normal;
+  font-weight: 700;
+}
+.roboto-normal-mountain-mist-18px {
+  color: var(--mountain-mist);
+  font-family: var(--font-family-roboto);
+  font-size: var(--font-size-xl);
+  font-style: normal;
+  font-weight: 400;
+}
+.roboto-bold-black-40px {
+  color: var(--black);
+  font-family: var(--font-family-roboto);
+  font-size: var(--font-size-xxxxxxxxl);
+  font-style: normal;
+  font-weight: 700;
+}
+.roboto-normal-gray-20px {
+  color: var(--gray);
+  font-family: var(--font-family-roboto);
+  font-size: var(--font-size-xxxl);
+  font-style: normal;
+  font-weight: 400;
+}
+.roboto-medium-black-23px {
+  color: var(--black);
+  font-family: var(--font-family-roboto);
+  font-size: var(--font-size-xxxxxl);
+  font-style: normal;
+  font-weight: 500;
+}
+.roboto-normal-black-20px {
+  color: var(--black);
+  font-family: var(--font-family-roboto);
+  font-size: var(--font-size-xxxl);
+  font-style: normal;
+  font-weight: 400;
+}
+.roboto-medium-black-18px {
+  color: var(--black);
+  font-family: var(--font-family-roboto);
+  font-size: var(--font-size-xl);
+  font-style: normal;
+  font-weight: 500;
+}
+.roboto-bold-black-17px {
+  color: var(--black);
+  font-family: var(--font-family-roboto);
+  font-size: var(--font-size-l);
+  font-style: normal;
+  font-weight: 700;
+}
+.roboto-medium-chicago-15px {
+  color: var(--chicago);
+  font-family: var(--font-family-roboto);
+  font-size: var(--font-size-m);
+  font-style: normal;
+  font-weight: 500;
+}
+.roboto-medium-black-22px {
+  color: var(--black);
+  font-family: var(--font-family-roboto);
+  font-size: var(--font-size-xxxxl);
+  font-style: normal;
+  font-weight: 500;
+}
+.border-1px-black {
+  border: 1px solid var(--black);
+}
+
+/* screen - desktop-1 */
+
+.desktop-1 {
+  background-color: var(--white);
+  height: 10699px;
+  mix-blend-mode: normal;
+  overflow: hidden;
+  overflow-x: hidden;
+  position: relative;
+  width: 1440px;
+}
+.desktop-1 .add-a-book-now-call-instantly-C61RwL {
+  background-color: transparent;
+  height: auto;
+  left: 118px;
+  letter-spacing: 0.00px;
+  line-height: 28px;
+  mix-blend-mode: normal;
+  position: absolute;
+  text-align: left;
+  top: 2753px;
+  width: 664px;
+}
+.desktop-1 .admission-offic-ll-new-students-C61RwL {
+  background-color: transparent;
+  height: auto;
+  left: 203px;
+  letter-spacing: 0.00px;
+  line-height: normal;
+  mix-blend-mode: normal;
+  position: absolute;
+  text-align: justify;
+  top: 2165px;
+  width: 303px;
+}
+.desktop-1 .all-in-one-educ-business-goals-C61RwL {
+  background-color: transparent;
+  height: auto;
+  left: 202px;
+  letter-spacing: 0.00px;
+  line-height: normal;
+  mix-blend-mode: normal;
+  position: absolute;
+  text-align: justify;
+  top: 1740px;
+  width: auto;
+}
+.desktop-1 .allow-students-e-cancellations-C61RwL {
+  background-color: transparent;
+  height: auto;
+  left: 440px;
+  letter-spacing: 0.00px;
+  line-height: normal;
+  mix-blend-mode: normal;
+  position: absolute;
+  text-align: left;
+  top: 4989px;
+  width: auto;
+}
+.desktop-1 .apointy-g2-300x100-1-1-min-1-C61RwL {
+  background-color: transparent;
+  height: 43px;
+  left: 787px;
+  mix-blend-mode: normal;
+  object-fit: cover;
+  position: absolute;
+  top: 7951px;
+  width: 121px;
+}
+.desktop-1 .appointment-con-eeting-window-1-C61RwL {
+  background-color: transparent;
+  height: 394px;
+  left: 118px;
+  mix-blend-mode: normal;
+  overflow: hidden;
+  position: absolute;
+  top: 2996px;
+  width: 547px;
+}
+.desktop-1 .appointy-can-he-d-group-classes-C61RwL {
+  background-color: transparent;
+  height: auto;
+  left: 290px;
+  letter-spacing: 0.00px;
+  line-height: normal;
+  mix-blend-mode: normal;
+  position: absolute;
+  text-align: justify;
+  top: 830px;
+  width: auto;
+}
+.desktop-1 .appointy-gives-ut-our-business-C61RwL {
+  background-color: transparent;
+  color: var(--black);
+  font-family: var(--font-family-roboto);
+  font-size: var(--font-size-xxl);
+  font-style: normal;
+  font-weight: 400;
+  height: auto;
+  left: 177px;
+  letter-spacing: 0.00px;
+  line-height: 30px;
+  mix-blend-mode: normal;
+  position: absolute;
+  text-align: left;
+  top: 7380px;
+  width: auto;
+}
+.desktop-1 .appointy-handle-student-success-C61RwL {
+  background-color: transparent;
+  height: auto;
+  left: 226px;
+  letter-spacing: 0.00px;
+  line-height: normal;
+  mix-blend-mode: normal;
+  position: absolute;
+  text-align: justify;
+  top: 4213px;
+  width: auto;
+}
+.desktop-1 .appointy-has-he-within-seconds-C61RwL {
+  background-color: transparent;
+  color: var(--black);
+  font-family: var(--font-family-roboto);
+  font-size: var(--font-size-xxl);
+  font-style: normal;
+  font-weight: 400;
+  height: auto;
+  left: 777px;
+  letter-spacing: 0.00px;
+  line-height: 30px;
+  mix-blend-mode: normal;
+  position: absolute;
+  text-align: left;
+  top: 7380px;
+  width: auto;
+}
+.desktop-1 .appointy-integr-tion-1024x125-1-C61RwL {
+  background-color: transparent;
+  height: 220px;
+  left: 2px;
+  mix-blend-mode: normal;
+  object-fit: cover;
+  position: absolute;
+  top: 5740px;
+  width: 1433px;
+}
+.desktop-1 .appointy-integr-you-already-use-C61RwL {
+  background-color: transparent;
+  height: auto;
+  left: 272px;
+  letter-spacing: 0.00px;
+  line-height: normal;
+  mix-blend-mode: normal;
+  position: absolute;
+  text-align: justify;
+  top: 5303px;
+  width: auto;
+}
+.desktop-1 .appointy-is-sup-chat-and-phone-C61RwL {
+  background-color: transparent;
+  height: auto;
+  left: 285px;
+  letter-spacing: 0.00px;
+  line-height: 25px;
+  mix-blend-mode: normal;
+  position: absolute;
+  text-align: justify;
+  top: 8507px;
+  width: auto;
+}
+.desktop-1 .appointys-educa-he-top-priority-C61RwL {
+  background-color: transparent;
+  color: var(--gray);
+  font-family: var(--font-family-roboto);
+  font-size: var(--font-size-xxxxl);
+  font-style: normal;
+  font-weight: 500;
+  height: auto;
+  left: 195px;
+  letter-spacing: 0.00px;
+  line-height: normal;
+  mix-blend-mode: normal;
+  position: absolute;
+  text-align: justify;
+  top: 1863px;
+  width: auto;
+}
+.desktop-1 .arrow-1-C61RwL {
+  background-color: transparent;
+  height: 16px;
+  left: 778px;
+  position: absolute;
+  top: 9402px;
+  width: 29px;
+}
+.desktop-1 .artboard-1-copy-1-min-300x100-1-C61RwL {
+  background-color: transparent;
+  height: 43px;
+  left: 525px;
+  mix-blend-mode: normal;
+  object-fit: cover;
+  position: absolute;
+  top: 7951px;
+  width: 121px;
+}
+.desktop-1 .artboard-1-copy-1-min-300x99-1-C61RwL {
+  background-color: transparent;
+  height: 43px;
+  left: 198px;
+  mix-blend-mode: normal;
+  object-fit: cover;
+  position: absolute;
+  top: 7951px;
+  width: 122px;
+}
+.desktop-1 .avoid-any-coodi-lasses-with-you-C61RwL {
+  background-color: transparent;
+  height: auto;
+  left: 566px;
+  letter-spacing: 0.00px;
+  line-height: normal;
+  mix-blend-mode: normal;
+  position: absolute;
+  text-align: justify;
+  top: 2165px;
+  width: 294px;
+}
+.desktop-1 .better-student-experience-C61RwL {
+  background-color: transparent;
+  height: 32px;
+  left: 926px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 2102px;
+  width: 32px;
+}
+.desktop-1 .booking-automation-C61RwL {
+  background-color: transparent;
+  height: auto;
+  left: 1033px;
+  letter-spacing: 0.00px;
+  line-height: normal;
+  mix-blend-mode: normal;
+  position: absolute;
+  text-align: justify;
+  top: 4611px;
+  width: 217px;
+}
+.desktop-1 .booking-convenience-C61RwL {
+  background-color: transparent;
+  height: 32px;
+  left: 561px;
+  mix-blend-mode: normal;
+  overflow: hidden;
+  position: absolute;
+  top: 2102px;
+  width: 34px;
+}
+.desktop-1 .booking-settings-1-C61RwL {
+  background-color: transparent;
+  height: 97px;
+  left: 1033px;
+  mix-blend-mode: normal;
+  overflow: hidden;
+  position: absolute;
+  top: 4498px;
+  width: 104px;
+}
+.desktop-1 .boost-staff-pro-taff-allocation-C61RwL {
+  background-color: transparent;
+  height: auto;
+  left: 174px;
+  letter-spacing: 0.00px;
+  line-height: normal;
+  mix-blend-mode: normal;
+  position: absolute;
+  text-align: left;
+  top: 4989px;
+  width: auto;
+}
+.desktop-1 .branded-online-staff-for-them-C61RwL {
+  background-color: transparent;
+  height: auto;
+  left: 118px;
+  letter-spacing: 0.00px;
+  line-height: 28px;
+  mix-blend-mode: normal;
+  position: absolute;
+  text-align: justify;
+  top: 2509px;
+  width: 627px;
+}
+.desktop-1 .calendar-scheduler-2-C61RwL {
+  background-color: transparent;
+  height: 99px;
+  left: 180px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 4498px;
+  width: 121px;
+}
+.desktop-1 .calender-schedular-C61RwL {
+  background-color: transparent;
+  height: auto;
+  left: 180px;
+  letter-spacing: 0.00px;
+  line-height: normal;
+  mix-blend-mode: normal;
+  position: absolute;
+  text-align: justify;
+  top: 4611px;
+  width: 209px;
+}
+.desktop-1 .chyntia-p-couns-tion-management-C61RwL {
+  background-color: transparent;
+  color: var(--gray);
+  font-family: var(--font-family-roboto);
+  font-size: var(--font-size-m);
+  font-style: normal;
+  font-weight: 500;
+  height: auto;
+  left: 793px;
+  letter-spacing: 0.00px;
+  line-height: normal;
+  mix-blend-mode: normal;
+  position: absolute;
+  text-align: justify;
+  top: 7633px;
+  width: 331px;
+}
+.desktop-1 .class-reminders-C61RwL {
+  background-color: transparent;
+  height: auto;
+  left: 440px;
+  letter-spacing: 0.00px;
+  line-height: normal;
+  mix-blend-mode: normal;
+  position: absolute;
+  text-align: justify;
+  top: 4611px;
+  width: 217px;
+}
+.desktop-1 .class-reminders-VMr6Om {
+  background-color: transparent;
+  height: 94px;
+  left: 440px;
+  mix-blend-mode: normal;
+  overflow: hidden;
+  position: absolute;
+  top: 4498px;
+  width: 93px;
+}
+.desktop-1 .connect-with-pr-students-easily-C61RwL {
+  background-color: transparent;
+  height: auto;
+  left: 241px;
+  letter-spacing: 0.00px;
+  line-height: normal;
+  mix-blend-mode: normal;
+  position: absolute;
+  text-align: justify;
+  top: 2088px;
+  width: auto;
+}
+.desktop-1 .connect-with-students-C61RwL {
+  background-color: transparent;
+  height: 32px;
+  left: 199px;
+  mix-blend-mode: normal;
+  overflow: hidden;
+  position: absolute;
+  top: 2102px;
+  width: 29px;
+}
+.desktop-1 .connect-with-us-C61RwL {
+  background-color: transparent;
+  color: #7d7d7d;
+  font-family: var(--font-family-roboto);
+  font-size: var(--font-size-xxxxxxl);
+  font-style: normal;
+  font-weight: 700;
+  height: auto;
+  left: 678px;
+  letter-spacing: 0.00px;
+  line-height: normal;
+  mix-blend-mode: normal;
+  position: absolute;
+  text-align: justify;
+  top: 10280px;
+  width: 252px;
+}
+.desktop-1 .contact-us-C61RwL {
+  background-color: transparent;
+  height: auto;
+  left: 803px;
+  letter-spacing: 0.00px;
+  line-height: normal;
+  mix-blend-mode: normal;
+  position: absolute;
+  text-align: left;
+  top: 30px;
+  width: auto;
+}
+.desktop-1 .contact-us-appo-rms-of-use-gdpr-C61RwL {
+  background-color: transparent;
+  height: auto;
+  left: 1005px;
+  letter-spacing: 0.00px;
+  line-height: normal;
+  mix-blend-mode: normal;
+  position: absolute;
+  text-align: justify;
+  top: 10060px;
+  width: 328px;
+}
+.desktop-1 .copyright-2020-rights-reserved-C61RwL {
+  background-color: transparent;
+  color: #8c8c8c;
+  font-family: var(--font-family-roboto);
+  font-size: var(--font-size-xxxl);
+  font-style: normal;
+  font-weight: 400;
+  height: auto;
+  left: 509px;
+  letter-spacing: 0.00px;
+  line-height: normal;
+  mix-blend-mode: normal;
+  position: absolute;
+  text-align: justify;
+  top: 10595px;
+  width: 424px;
+}
+.desktop-1 .cost-effective-snt-overwhelmed-C61RwL {
+  background-color: transparent;
+  color: var(--gray);
+  font-family: var(--font-family-roboto);
+  font-size: var(--font-size-xxxxl);
+  font-style: normal;
+  font-weight: 500;
+  height: auto;
+  left: 197px;
+  letter-spacing: 0.00px;
+  line-height: normal;
+  mix-blend-mode: normal;
+  position: absolute;
+  text-align: justify;
+  top: 4336px;
+  width: auto;
+}
+.desktop-1 .custom-online-s-utoring-centers-C61RwL {
+  background-color: transparent;
+  height: auto;
+  left: 168px;
+  letter-spacing: 0.00px;
+  line-height: normal;
+  mix-blend-mode: normal;
+  position: absolute;
+  text-align: justify;
+  top: 6194px;
+  width: auto;
+}
+.desktop-1 .custom-workflows-C61RwL {
+  background-color: transparent;
+  height: auto;
+  left: 775px;
+  letter-spacing: 0.00px;
+  line-height: normal;
+  mix-blend-mode: normal;
+  position: absolute;
+  text-align: center;
+  top: 6629px;
+  width: 221px;
+}
+.desktop-1 .custom-workflows-VMr6Om {
+  background-color: transparent;
+  height: 69px;
+  left: 836px;
+  mix-blend-mode: normal;
+  overflow: hidden;
+  position: absolute;
+  top: 6507px;
+  width: 97px;
+}
+.desktop-1 .customers-C61RwL {
+  background-color: transparent;
+  height: auto;
+  left: 699px;
+  letter-spacing: 0.00px;
+  line-height: normal;
+  mix-blend-mode: normal;
+  position: absolute;
+  text-align: left;
+  top: 30px;
+  width: auto;
+}
+.desktop-1 .dedicated-stude-rents-regularly-C61RwL {
+  background-color: transparent;
+  height: auto;
+  left: 118px;
+  letter-spacing: 0.00px;
+  line-height: 28px;
+  mix-blend-mode: normal;
+  position: absolute;
+  text-align: justify;
+  top: 3663px;
+  width: 532px;
+}
+.desktop-1 .dedicated-support-C61RwL {
+  background-color: transparent;
+  height: auto;
+  left: 1080px;
+  letter-spacing: 0.00px;
+  line-height: normal;
+  mix-blend-mode: normal;
+  position: absolute;
+  text-align: center;
+  top: 6629px;
+  width: 221px;
+}
+.desktop-1 .dedicated-support-team-C61RwL {
+  background-color: transparent;
+  height: 68px;
+  left: 1165px;
+  mix-blend-mode: normal;
+  overflow: hidden;
+  position: absolute;
+  top: 6507px;
+  width: 49px;
+}
+.desktop-1 .educating-sched-better-results-C61RwL {
+  background-color: transparent;
+  color: #514a4a;
+  font-family: var(--font-family-roboto);
+  font-size: var(--font-size-xxxxxxxl);
+  font-style: normal;
+  font-weight: 500;
+  height: auto;
+  left: 127px;
+  letter-spacing: 0.00px;
+  line-height: normal;
+  mix-blend-mode: normal;
+  position: absolute;
+  text-align: left;
+  top: 194px;
+  width: auto;
+}
+.desktop-1 .education-sched-work-calendars-C61RwL {
+  background-color: transparent;
+  color: var(--gray);
+  font-family: var(--font-family-roboto);
+  font-size: var(--font-size-xxxl);
+  font-style: normal;
+  font-weight: 500;
+  height: auto;
+  left: 140px;
+  letter-spacing: 0.00px;
+  line-height: normal;
+  mix-blend-mode: normal;
+  position: absolute;
+  text-align: justify;
+  top: 5374px;
+  width: auto;
+}
+.desktop-1 .educational-events-C61RwL {
+  background-color: transparent;
+  height: auto;
+  left: 1014px;
+  letter-spacing: 0.00px;
+  line-height: normal;
+  mix-blend-mode: normal;
+  position: absolute;
+  text-align: justify;
+  top: 1400px;
+  width: 200px;
+}
+.desktop-1 .educational-events-VMr6Om {
+  background-color: transparent;
+  height: 92px;
+  left: 1014px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 1287px;
+  width: 100px;
+}
+.desktop-1 .eliminate-the-s-r-they-need-you-C61RwL {
+  background-color: transparent;
+  height: auto;
+  left: 772px;
+  letter-spacing: 0.00px;
+  line-height: 28px;
+  mix-blend-mode: normal;
+  position: absolute;
+  text-align: justify;
+  top: 2991px;
+  width: 459px;
+}
+.desktop-1 .ellipse-1-C61RwL {
+  background-color: transparent;
+  height: 80px;
+  left: 1251px;
+  mix-blend-mode: normal;
+  object-fit: cover;
+  position: absolute;
+  top: 10595px;
+  width: 75px;
+}
+.desktop-1 .ellipse-2-C61RwL {
+  background-color: #07ff2f;
+  border-radius: 6.5px/7px;
+  height: 14px;
+  left: 1310px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 10659px;
+  width: 13px;
+}
+.desktop-1 .end-to-end-branding-C61RwL {
+  background-color: transparent;
+  height: auto;
+  left: 477px;
+  letter-spacing: 0.00px;
+  line-height: normal;
+  mix-blend-mode: normal;
+  position: absolute;
+  text-align: center;
+  top: 6629px;
+  width: 220px;
+}
+.desktop-1 .end-to-end-branding-VMr6Om {
+  background-color: transparent;
+  height: 69px;
+  left: 554px;
+  mix-blend-mode: normal;
+  overflow: hidden;
+  position: absolute;
+  top: 6507px;
+  width: 64px;
+}
+.desktop-1 .enterprise-C61RwL {
+  background-color: transparent;
+  height: auto;
+  left: 908px;
+  letter-spacing: 0.00px;
+  line-height: normal;
+  mix-blend-mode: normal;
+  position: absolute;
+  text-align: left;
+  top: 30px;
+  width: auto;
+}
+.desktop-1 .features-schedu-etain-customers-C61RwL {
+  background-color: transparent;
+  height: auto;
+  left: 382px;
+  letter-spacing: 0.00px;
+  line-height: normal;
+  mix-blend-mode: normal;
+  position: absolute;
+  text-align: justify;
+  top: 10060px;
+  width: 206px;
+}
+.desktop-1 .footer-element-1536x254-1-C61RwL {
+  background-color: transparent;
+  height: 254px;
+  left: 0px;
+  mix-blend-mode: normal;
+  object-fit: cover;
+  position: absolute;
+  top: 9487px;
+  width: 1435px;
+}
+.desktop-1 .free-setup-assi-asy-migration-2-C61RwL {
+  background-color: transparent;
+  height: 80px;
+  left: 177px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 8760px;
+  width: 65px;
+}
+.desktop-1 .free-setup-assi-easy-migration-C61RwL {
+  background-color: transparent;
+  height: auto;
+  left: 266px;
+  letter-spacing: 0.00px;
+  line-height: normal;
+  mix-blend-mode: normal;
+  position: absolute;
+  text-align: justify;
+  top: 8760px;
+  width: 414px;
+}
+.desktop-1 .get-started-now-C61RwL {
+  background-color: transparent;
+  color: var(--white);
+  font-family: var(--font-family-roboto);
+  font-size: var(--font-size-xxxxxxl);
+  font-style: normal;
+  font-weight: 400;
+  height: auto;
+  left: 165px;
+  letter-spacing: 0.00px;
+  line-height: normal;
+  mix-blend-mode: normal;
+  position: absolute;
+  text-align: justify;
+  top: 532px;
+  width: auto;
+}
+.desktop-1 .give-students-m-ing-convenience-C61RwL {
+  background-color: transparent;
+  height: auto;
+  left: 612px;
+  letter-spacing: 0.00px;
+  line-height: normal;
+  mix-blend-mode: normal;
+  position: absolute;
+  text-align: justify;
+  top: 2088px;
+  width: auto;
+}
+.desktop-1 .give-students-m-ing-convenience-VMr6Om {
+  background-color: transparent;
+  height: auto;
+  left: 970px;
+  letter-spacing: 0.00px;
+  line-height: normal;
+  mix-blend-mode: normal;
+  position: absolute;
+  text-align: justify;
+  top: 2088px;
+  width: auto;
+}
+.desktop-1 .group-3PZDGn {
+  background-color: transparent;
+  height: 17px;
+  left: 411px;
+  position: absolute;
+  top: 56px;
+  width: 16px;
+}
+.desktop-1 .group-D9vIxh {
+  background-color: transparent;
+  height: 48px;
+  left: -1px;
+  position: absolute;
+  top: 211px;
+  width: 135px;
+}
+.desktop-1 .group-PiL9yv {
+  background-color: transparent;
+  height: 221px;
+  left: 369px;
+  position: absolute;
+  top: 30px;
+  width: 181px;
+}
+.desktop-1 .group-XPgmFW {
+  background-color: transparent;
+  height: 299px;
+  left: 15px;
+  position: absolute;
+  top: 103px;
+  width: 138px;
+}
+.desktop-1 .group-YLSUqx {
+  background-color: transparent;
+  height: 302px;
+  left: 106px;
+  position: absolute;
+  top: -2px;
+  width: 330px;
+}
+.desktop-1 .group-cgAFwg {
+  background-color: transparent;
+  height: 391px;
+  left: 89px;
+  position: absolute;
+  top: -0px;
+  width: 382px;
+}
+.desktop-1 .group-duuGUj {
+  background-color: transparent;
+  height: 102px;
+  left: 29px;
+  opacity: 0.8;
+  position: absolute;
+  top: 265px;
+  width: 110px;
+}
+.desktop-1 .group-h6sHkQ {
+  background-color: transparent;
+  height: 206px;
+  left: 311px;
+  position: absolute;
+  top: 182px;
+  width: 169px;
+}
+.desktop-1 .group-kdqPpG {
+  background-color: transparent;
+  height: 93px;
+  left: -1px;
+  position: absolute;
+  top: -0px;
+  width: 98px;
+}
+.desktop-1 .group-kx7xAm {
+  background-color: transparent;
+  height: 61px;
+  left: 82px;
+  position: absolute;
+  top: 189px;
+  width: 62px;
+}
+.desktop-1 .group-kxbi2D {
+  background-color: transparent;
+  height: 93px;
+  left: -1px;
+  position: absolute;
+  top: -1px;
+  width: 101px;
+}
+.desktop-1 .group-oyPScF {
+  background-color: transparent;
+  height: 176px;
+  left: -3px;
+  position: absolute;
+  top: 220px;
+  width: 196px;
+}
+.desktop-1 .group-tpzixh {
+  background-color: transparent;
+  height: 8px;
+  left: 78px;
+  position: absolute;
+  top: 241px;
+  width: 34px;
+}
+.desktop-1 .group-uY3C5g {
+  background-color: transparent;
+  height: 158px;
+  left: -5px;
+  position: absolute;
+  top: 185px;
+  width: 164px;
+}
+.desktop-1 .group-xUjp0B {
+  background-color: transparent;
+  height: 91px;
+  left: 0px;
+  position: relative;
+  top: 0px;
+  width: 90px;
+}
+.desktop-1 .group-zpOZdx {
+  background-color: transparent;
+  height: 357px;
+  left: 46px;
+  position: absolute;
+  top: -0px;
+  width: 399px;
+}
+.desktop-1 .happy-educator-duling-software-C61RwL {
+  background-color: transparent;
+  height: 358px;
+  left: 751px;
+  mix-blend-mode: normal;
+  overflow: hidden;
+  position: absolute;
+  top: 158px;
+  width: 533px;
+}
+.desktop-1 .home-C61RwL {
+  background-color: transparent;
+  height: auto;
+  left: 634px;
+  letter-spacing: 0.00px;
+  line-height: normal;
+  mix-blend-mode: normal;
+  position: absolute;
+  text-align: left;
+  top: 30px;
+  width: auto;
+}
+.desktop-1 .instagram-profi-arious-subjects-C61RwL {
+  background-color: transparent;
+  height: 404px;
+  left: 796px;
+  mix-blend-mode: normal;
+  overflow: hidden;
+  position: absolute;
+  top: 2440px;
+  width: 469px;
+}
+.desktop-1 .institutions-ca-conferences-etc-C61RwL {
+  background-color: transparent;
+  height: auto;
+  left: 1014px;
+  letter-spacing: 0.00px;
+  line-height: normal;
+  mix-blend-mode: normal;
+  position: absolute;
+  text-align: left;
+  top: 1437px;
+  width: 213px;
+}
+.desktop-1 .institutions-ca-ourses-and-more-C61RwL {
+  background-color: transparent;
+  height: auto;
+  left: 462px;
+  letter-spacing: 0.00px;
+  line-height: normal;
+  mix-blend-mode: normal;
+  position: absolute;
+  text-align: left;
+  top: 1142px;
+  width: 228px;
+}
+.desktop-1 .intake-forms-co-re-your-session-C61RwL {
+  background-color: transparent;
+  height: auto;
+  left: 118px;
+  letter-spacing: 0.00px;
+  line-height: 28px;
+  mix-blend-mode: normal;
+  position: absolute;
+  text-align: justify;
+  top: 3791px;
+  width: 536px;
+}
+.desktop-1 .intelligent-tim-th-just-a-clicl-C61RwL {
+  background-color: transparent;
+  height: auto;
+  left: 772px;
+  letter-spacing: 0.00px;
+  line-height: 28px;
+  mix-blend-mode: normal;
+  position: absolute;
+  text-align: justify;
+  top: 3287px;
+  width: 553px;
+}
+.desktop-1 .intelligent-tim-their-time-zone-C61RwL {
+  background-color: transparent;
+  height: auto;
+  left: 772px;
+  letter-spacing: 0.00px;
+  line-height: 28px;
+  mix-blend-mode: normal;
+  position: absolute;
+  text-align: justify;
+  top: 3179px;
+  width: 553px;
+}
+.desktop-1 .keep-a-track-on-your-processes-C61RwL {
+  background-color: transparent;
+  height: auto;
+  left: 728px;
+  letter-spacing: 0.00px;
+  line-height: normal;
+  mix-blend-mode: normal;
+  position: absolute;
+  text-align: left;
+  top: 4989px;
+  width: auto;
+}
+.desktop-1 .learn-more-C61RwL {
+  background-color: transparent;
+  color: #ff0000;
+  font-family: var(--font-family-roboto);
+  font-size: var(--font-size-xxxxxxl);
+  font-style: normal;
+  font-weight: 400;
+  height: auto;
+  left: 648px;
+  letter-spacing: 0.00px;
+  line-height: normal;
+  mix-blend-mode: normal;
+  position: absolute;
+  text-align: center;
+  top: 6899px;
+  width: 145px;
+}
+.desktop-1 .libraries-C61RwL {
+  background-color: transparent;
+  height: 92px;
+  left: 1016px;
+  mix-blend-mode: normal;
+  overflow: hidden;
+  position: absolute;
+  top: 992px;
+  width: 100px;
+}
+.desktop-1 .libraries-VMr6Om {
+  background-color: transparent;
+  height: auto;
+  left: 1016px;
+  letter-spacing: 0.00px;
+  line-height: normal;
+  mix-blend-mode: normal;
+  position: absolute;
+  text-align: justify;
+  top: 1105px;
+  width: 209px;
+}
+.desktop-1 .limit-number-of-ession-and-more-C61RwL {
+  background-color: transparent;
+  height: auto;
+  left: 1033px;
+  letter-spacing: 0.00px;
+  line-height: normal;
+  mix-blend-mode: normal;
+  position: absolute;
+  text-align: left;
+  top: 4648px;
+  width: 252px;
+}
+.desktop-1 .login-C61RwL {
+  background-color: transparent;
+  height: auto;
+  left: 1078px;
+  letter-spacing: 0.00px;
+  line-height: normal;
+  mix-blend-mode: normal;
+  position: absolute;
+  text-align: left;
+  top: 30px;
+  width: auto;
+}
+.desktop-1 .make-it-easier-vising-sessions-C61RwL {
+  background-color: transparent;
+  height: auto;
+  left: 118px;
+  letter-spacing: 0.00px;
+  line-height: normal;
+  mix-blend-mode: normal;
+  position: absolute;
+  text-align: justify;
+  top: 2440px;
+  width: 556px;
+}
+.desktop-1 .multi-channek-b-ite-integration-C61RwL {
+  background-color: transparent;
+  height: auto;
+  left: 118px;
+  letter-spacing: 0.00px;
+  line-height: 28px;
+  mix-blend-mode: normal;
+  position: absolute;
+  text-align: justify;
+  top: 2645px;
+  width: 632px;
+}
+.desktop-1 .multi-location-management-2-C61RwL {
+  background-color: transparent;
+  height: 75px;
+  left: 785px;
+  mix-blend-mode: normal;
+  overflow: hidden;
+  position: absolute;
+  top: 8464px;
+  width: 66px;
+}
+.desktop-1 .multi-location-management-C61RwL {
+  background-color: transparent;
+  height: auto;
+  left: 874px;
+  letter-spacing: 0.00px;
+  line-height: normal;
+  mix-blend-mode: normal;
+  position: absolute;
+  text-align: justify;
+  top: 8464px;
+  width: 331px;
+}
+.desktop-1 .multiple-payment-apps-C61RwL {
+  background-color: transparent;
+  height: auto;
+  left: 329px;
+  letter-spacing: 0.00px;
+  line-height: normal;
+  mix-blend-mode: normal;
+  position: absolute;
+  text-align: justify;
+  top: 5593px;
+  width: 169px;
+}
+.desktop-1 .no-credit-card-is-free-forever-C61RwL {
+  background-color: transparent;
+  color: var(--gray);
+  font-family: var(--font-family-roboto);
+  font-size: var(--font-size-l);
+  font-style: normal;
+  font-weight: 400;
+  height: auto;
+  left: 127px;
+  letter-spacing: 0.00px;
+  line-height: normal;
+  mix-blend-mode: normal;
+  position: absolute;
+  text-align: justify;
+  top: 598px;
+  width: auto;
+}
+.desktop-1 .no-credit-card-is-free-forever-VMr6Om {
+  background-color: transparent;
+  height: auto;
+  left: 468px;
+  letter-spacing: 0.00px;
+  line-height: normal;
+  mix-blend-mode: normal;
+  position: absolute;
+  text-align: justify;
+  top: 9461px;
+  width: 505px;
+}
+.desktop-1 .online-prepayments-10-C61RwL {
+  background-color: transparent;
+  height: 92px;
+  left: 440px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 4838px;
+  width: 93px;
+}
+.desktop-1 .online-prepayments-C61RwL {
+  background-color: transparent;
+  height: auto;
+  left: 440px;
+  letter-spacing: 0.00px;
+  line-height: normal;
+  mix-blend-mode: normal;
+  position: absolute;
+  text-align: justify;
+  top: 4952px;
+  width: 207px;
+}
+.desktop-1 .online-reputati-th-just-a-click-C61RwL {
+  background-color: transparent;
+  height: auto;
+  left: 118px;
+  letter-spacing: 0.00px;
+  line-height: 28px;
+  mix-blend-mode: normal;
+  position: absolute;
+  text-align: left;
+  top: 3891px;
+  width: 564px;
+}
+.desktop-1 .our-education-s-ed-admin-portal-C61RwL {
+  background-color: transparent;
+  height: auto;
+  left: 874px;
+  letter-spacing: 0.00px;
+  line-height: 25px;
+  mix-blend-mode: normal;
+  position: absolute;
+  text-align: justify;
+  top: 8505px;
+  width: auto;
+}
+.desktop-1 .our-solution-ca-of-your-company-C61RwL {
+  background-color: transparent;
+  height: auto;
+  left: 740px;
+  letter-spacing: 0.00px;
+  line-height: normal;
+  mix-blend-mode: normal;
+  position: absolute;
+  text-align: center;
+  top: 6668px;
+  width: 301px;
+}
+.desktop-1 .our-support-tea-roubleshoot-etc-C61RwL {
+  background-color: transparent;
+  height: auto;
+  left: 1036px;
+  letter-spacing: 0.00px;
+  line-height: normal;
+  mix-blend-mode: normal;
+  position: absolute;
+  text-align: center;
+  top: 6668px;
+  width: 324px;
+}
+.desktop-1 .owner-be-mo-aca-emic-consulting-C61RwL {
+  background-color: transparent;
+  color: var(--gray);
+  font-family: var(--font-family-roboto);
+  font-size: var(--font-size-m);
+  font-style: normal;
+  font-weight: 500;
+  height: auto;
+  left: 189px;
+  letter-spacing: 0.00px;
+  line-height: normal;
+  mix-blend-mode: normal;
+  position: absolute;
+  text-align: justify;
+  top: 7709px;
+  width: 265px;
+}
+.desktop-1 .path-19-1-C61RwL {
+  background-color: transparent;
+  height: 53px;
+  left: 151px;
+  mix-blend-mode: normal;
+  overflow: hidden;
+  position: absolute;
+  top: 7293px;
+  width: 50px;
+}
+.desktop-1 .personal-work-calender-C61RwL {
+  background-color: transparent;
+  height: auto;
+  left: 632px;
+  letter-spacing: 0.00px;
+  line-height: normal;
+  mix-blend-mode: normal;
+  position: absolute;
+  text-align: justify;
+  top: 5593px;
+  width: 192px;
+}
+.desktop-1 .personalise-ses-nd-satisfaction-C61RwL {
+  background-color: transparent;
+  height: auto;
+  left: 118px;
+  letter-spacing: 0.00px;
+  line-height: normal;
+  mix-blend-mode: normal;
+  position: absolute;
+  text-align: justify;
+  top: 3594px;
+  width: 472px;
+}
+.desktop-1 .portal-with-student-database-C61RwL {
+  background-color: transparent;
+  height: 383px;
+  left: 796px;
+  mix-blend-mode: normal;
+  overflow: hidden;
+  position: absolute;
+  top: 3594px;
+  width: 476px;
+}
+.desktop-1 .pricing-C61RwL {
+  background-color: transparent;
+  height: auto;
+  left: 1006px;
+  letter-spacing: 0.00px;
+  line-height: normal;
+  mix-blend-mode: normal;
+  position: absolute;
+  text-align: left;
+  top: 30px;
+  width: auto;
+}
+.desktop-1 .product-home-cu-pricing-sign-up-C61RwL {
+  background-color: transparent;
+  height: auto;
+  left: 131px;
+  letter-spacing: 0.00px;
+  line-height: normal;
+  mix-blend-mode: normal;
+  position: absolute;
+  text-align: justify;
+  top: 10061px;
+  width: 126px;
+}
+.desktop-1 .professors-can-toring-and-more-C61RwL {
+  background-color: transparent;
+  height: auto;
+  left: 734px;
+  letter-spacing: 0.00px;
+  line-height: normal;
+  mix-blend-mode: normal;
+  position: absolute;
+  text-align: left;
+  top: 1142px;
+  width: 229px;
+}
+.desktop-1 .professors-teachers-C61RwL {
+  background-color: transparent;
+  height: 92px;
+  left: 735px;
+  mix-blend-mode: normal;
+  overflow: hidden;
+  position: absolute;
+  top: 992px;
+  width: 100px;
+}
+.desktop-1 .professors-teachers-VMr6Om {
+  background-color: transparent;
+  height: auto;
+  left: 735px;
+  letter-spacing: 0.00px;
+  line-height: normal;
+  mix-blend-mode: normal;
+  position: absolute;
+  text-align: justify;
+  top: 1105px;
+  width: 209px;
+}
+.desktop-1 .public-school-o-ading-slots-etc-C61RwL {
+  background-color: transparent;
+  height: auto;
+  left: 1014px;
+  letter-spacing: 0.00px;
+  line-height: normal;
+  mix-blend-mode: normal;
+  position: absolute;
+  text-align: left;
+  top: 1142px;
+  width: 248px;
+}
+.desktop-1 .rectangle-1-C61RwL {
+  background-color: var(--white);
+  box-shadow: 0px 4px 15px #00000033;
+  height: 81px;
+  left: 0px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 0px;
+  width: 1440px;
+}
+.desktop-1 .rectangle-11-C61RwL {
+  background-color: var(--link-water);
+  border-radius: 30px;
+  height: 50px;
+  left: 177px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 7694px;
+  width: 270px;
+}
+.desktop-1 .rectangle-12-C61RwL {
+  background-color: var(--white);
+  border: 1px solid #aeaeae;
+  height: 464px;
+  left: 746px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 7319px;
+  width: 543px;
+}
+.desktop-1 .rectangle-13-C61RwL {
+  background-color: var(--link-water);
+  border-radius: 30px;
+  height: 50px;
+  left: 777px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 7618px;
+  width: 340px;
+}
+.desktop-1 .rectangle-14-C61RwL {
+  background-color: #dfe7fd80;
+  height: 976px;
+  left: 0px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 8130px;
+  width: 1345px;
+}
+.desktop-1 .rectangle-15-C61RwL {
+  background-color: var(--white);
+  border-radius: 10px;
+  height: 256px;
+  left: 149px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 8432px;
+  width: 557px;
+}
+.desktop-1 .rectangle-16-C61RwL {
+  background-color: var(--white);
+  border-radius: 10px;
+  height: 256px;
+  left: 738px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 8432px;
+  width: 557px;
+}
+.desktop-1 .rectangle-17-C61RwL {
+  background-color: var(--white);
+  border-radius: 10px;
+  height: 256px;
+  left: 149px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 8728px;
+  width: 557px;
+}
+.desktop-1 .rectangle-18-C61RwL {
+  background-color: var(--white);
+  border-radius: 10px;
+  height: 256px;
+  left: 738px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 8728px;
+  width: 557px;
+}
+.desktop-1 .rectangle-19-C61RwL {
+  background-color: transparent;
+  height: 70px;
+  left: 603px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 9375px;
+  width: 233px;
+}
+.desktop-1 .rectangle-2-C61RwL {
+  background-color: transparent;
+  height: 45px;
+  left: 1139px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 18px;
+  width: 130px;
+}
+.desktop-1 .rectangle-20-C61RwL {
+  background-color: var(--white);
+  height: 15px;
+  left: 713px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 10332px;
+  width: 14px;
+}
+.desktop-1 .rectangle-21-C61RwL {
+  background-color: var(--white);
+  height: 15px;
+  left: 781px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 10332px;
+  width: 14px;
+}
+.desktop-1 .rectangle-22-C61RwL {
+  background-color: var(--white);
+  height: 15px;
+  left: 849px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 10332px;
+  width: 14px;
+}
+.desktop-1 .rectangle-23-C61RwL {
+  background-color: var(--black);
+  height: 140px;
+  left: 87px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 10559px;
+  width: 1353px;
+}
+.desktop-1 .rectangle-3-C61RwL {
+  background-color: transparent;
+  height: 70px;
+  left: 127px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 512px;
+  width: 260px;
+}
+.desktop-1 .rectangle-4-C61RwL {
+  background-color: #dfe7fd82;
+  border-radius: 10px;
+  height: 255px;
+  left: 118px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 2038px;
+  width: 1205px;
+}
+.desktop-1 .rectangle-5-C61RwL {
+  background-color: var(--link-water);
+  border-radius: 30px;
+  height: 50px;
+  left: 315px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 5577px;
+  width: 195px;
+}
+.desktop-1 .rectangle-6-C61RwL {
+  background-color: var(--link-water);
+  border-radius: 30px;
+  height: 50px;
+  left: 611px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 5577px;
+  width: 210px;
+}
+.desktop-1 .rectangle-7-C61RwL {
+  background-color: var(--link-water);
+  border-radius: 30px;
+  height: 50px;
+  left: 926px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 5577px;
+  width: 205px;
+}
+.desktop-1 .rectangle-8-C61RwL {
+  background-color: transparent;
+  height: 70px;
+  left: 608px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 6878px;
+  width: 224px;
+}
+.desktop-1 .rectangle-9-C61RwL {
+  background-color: var(--white);
+  border: 1px solid #aeaeae;
+  height: 464px;
+  left: 151px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 7320px;
+  width: 543px;
+}
+.desktop-1 .reporting-analytics-C61RwL {
+  background-color: transparent;
+  height: auto;
+  left: 728px;
+  letter-spacing: 0.00px;
+  line-height: normal;
+  mix-blend-mode: normal;
+  position: absolute;
+  text-align: justify;
+  top: 4952px;
+  width: 208px;
+}
+.desktop-1 .reporting-and-analytics-20-C61RwL {
+  background-color: transparent;
+  height: 91px;
+  left: 728px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 4838px;
+  width: 93px;
+}
+.desktop-1 .reserve-equipme-ating-resources-C61RwL {
+  background-color: transparent;
+  height: auto;
+  left: 728px;
+  letter-spacing: 0.00px;
+  line-height: normal;
+  mix-blend-mode: normal;
+  position: absolute;
+  text-align: left;
+  top: 4648px;
+  width: 218px;
+}
+.desktop-1 .resource-scheduling-1-C61RwL {
+  background-color: transparent;
+  height: 91px;
+  left: 728px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 4498px;
+  width: 110px;
+}
+.desktop-1 .resource-scheduling-C61RwL {
+  background-color: transparent;
+  height: auto;
+  left: 728px;
+  letter-spacing: 0.00px;
+  line-height: normal;
+  mix-blend-mode: normal;
+  position: absolute;
+  text-align: justify;
+  top: 4611px;
+  width: 217px;
+}
+.desktop-1 .save-valuable-t-eb-conferencing-C61RwL {
+  background-color: transparent;
+  color: #808080;
+  font-family: var(--font-family-roboto);
+  font-size: var(--font-size-xxxl);
+  font-style: normal;
+  font-weight: 400;
+  height: auto;
+  left: 127px;
+  letter-spacing: 0.00px;
+  line-height: normal;
+  mix-blend-mode: normal;
+  position: absolute;
+  text-align: justify;
+  top: 369px;
+  width: 556px;
+}
+.desktop-1 .scheduling-mobile-app-C61RwL {
+  background-color: transparent;
+  height: auto;
+  left: 1033px;
+  letter-spacing: 0.00px;
+  line-height: normal;
+  mix-blend-mode: normal;
+  position: absolute;
+  text-align: justify;
+  top: 4952px;
+  width: 228px;
+}
+.desktop-1 .schools-1-C61RwL {
+  background-color: transparent;
+  height: 92px;
+  left: 180px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 992px;
+  width: 100px;
+}
+.desktop-1 .schools-C61RwL {
+  background-color: transparent;
+  height: auto;
+  left: 180px;
+  letter-spacing: 0.00px;
+  line-height: normal;
+  mix-blend-mode: normal;
+  position: absolute;
+  text-align: justify;
+  top: 1105px;
+  width: 200px;
+}
+.desktop-1 .schools-can-mak-counseling-etc-C61RwL {
+  background-color: transparent;
+  height: auto;
+  left: 180px;
+  letter-spacing: 0.00px;
+  line-height: normal;
+  mix-blend-mode: normal;
+  position: absolute;
+  text-align: left;
+  top: 1142px;
+  width: 230px;
+}
+.desktop-1 .security-20-1-C61RwL {
+  background-color: transparent;
+  height: 80px;
+  left: 790px;
+  mix-blend-mode: normal;
+  overflow: hidden;
+  position: absolute;
+  top: 8762px;
+  width: 70px;
+}
+.desktop-1 .security-C61RwL {
+  background-color: transparent;
+  height: auto;
+  left: 892px;
+  letter-spacing: 0.00px;
+  line-height: normal;
+  mix-blend-mode: normal;
+  position: absolute;
+  text-align: justify;
+  top: 8760px;
+  width: 121px;
+}
+.desktop-1 .see-your-entire-r-double-booked-C61RwL {
+  background-color: transparent;
+  height: auto;
+  left: 180px;
+  letter-spacing: 0.00px;
+  line-height: normal;
+  mix-blend-mode: normal;
+  position: absolute;
+  text-align: left;
+  top: 4648px;
+  width: 186px;
+}
+.desktop-1 .send-automated-ation-links-etc-C61RwL {
+  background-color: transparent;
+  height: auto;
+  left: 440px;
+  letter-spacing: 0.00px;
+  line-height: normal;
+  mix-blend-mode: normal;
+  position: absolute;
+  text-align: left;
+  top: 4648px;
+  width: 217px;
+}
+.desktop-1 .sign-up-C61RwL {
+  background-color: transparent;
+  color: var(--white);
+  font-family: var(--font-family-roboto);
+  font-size: var(--font-size-xl);
+  font-style: normal;
+  font-weight: 400;
+  height: auto;
+  left: 1176px;
+  letter-spacing: 0.00px;
+  line-height: normal;
+  mix-blend-mode: normal;
+  position: absolute;
+  text-align: left;
+  top: 30px;
+  width: auto;
+}
+.desktop-1 .sign-up-now-C61RwL {
+  background-color: transparent;
+  color: var(--white);
+  font-family: var(--font-family-roboto);
+  font-size: var(--font-size-xxxxxxl);
+  font-style: normal;
+  font-weight: 500;
+  height: auto;
+  left: 632px;
+  letter-spacing: 0.00px;
+  line-height: normal;
+  mix-blend-mode: normal;
+  position: absolute;
+  text-align: justify;
+  top: 9395px;
+  width: 159px;
+}
+.desktop-1 .span0-BCCAj3 {
+  font-style: normal;
+}
+.desktop-1 .span0-E5hn4m {
+
+}
+.desktop-1 .span0-EN3b6x {
+
+}
+.desktop-1 .span0-J7xMHz {
+
+}
+.desktop-1 .span0-JOASrg {
+
+}
+.desktop-1 .span0-PfoRlr {
+
+}
+.desktop-1 .span0-SiSCvI {
+
+}
+.desktop-1 .span0-Tj0Gfs {
+
+}
+.desktop-1 .span0-Txbmgs {
+
+}
+.desktop-1 .span0-ZgKxOn {
+
+}
+.desktop-1 .span0-ePsuJx {
+
+}
+.desktop-1 .span0-gBxL91 {
+
+}
+.desktop-1 .span0-hxdJWG {
+
+}
+.desktop-1 .span0-lTZr40 {
+
+}
+.desktop-1 .span0-luYVSm {
+
+}
+.desktop-1 .span0-mOHdC1 {
+
+}
+.desktop-1 .span0-uOAW8T {
+
+}
+.desktop-1 .span1-BCCAj3 {
+  font-style: normal;
+}
+.desktop-1 .span1-E5hn4m {
+
+}
+.desktop-1 .span1-EN3b6x {
+
+}
+.desktop-1 .span1-J7xMHz {
+
+}
+.desktop-1 .span1-JOASrg {
+
+}
+.desktop-1 .span1-PfoRlr {
+
+}
+.desktop-1 .span1-SiSCvI {
+
+}
+.desktop-1 .span1-Tj0Gfs {
+
+}
+.desktop-1 .span1-Txbmgs {
+
+}
+.desktop-1 .span1-ZgKxOn {
+
+}
+.desktop-1 .span1-ePsuJx {
+
+}
+.desktop-1 .span1-gBxL91 {
+
+}
+.desktop-1 .span1-hxdJWG {
+
+}
+.desktop-1 .span1-lTZr40 {
+
+}
+.desktop-1 .span1-luYVSm {
+
+}
+.desktop-1 .span1-mOHdC1 {
+
+}
+.desktop-1 .span1-uOAW8T {
+
+}
+.desktop-1 .staff-management-C61RwL {
+  background-color: transparent;
+  height: auto;
+  left: 180px;
+  letter-spacing: 0.00px;
+  line-height: normal;
+  mix-blend-mode: normal;
+  position: absolute;
+  text-align: justify;
+  top: 4952px;
+  width: 209px;
+}
+.desktop-1 .stay-on-top-of-y-from-the-desk-C61RwL {
+  background-color: transparent;
+  height: auto;
+  left: 1033px;
+  letter-spacing: 0.00px;
+  line-height: normal;
+  mix-blend-mode: normal;
+  position: absolute;
+  text-align: left;
+  top: 4988px;
+  width: auto;
+}
+.desktop-1 .store-important-essions-classes-C61RwL {
+  background-color: transparent;
+  height: auto;
+  left: 926px;
+  letter-spacing: 0.00px;
+  line-height: normal;
+  mix-blend-mode: normal;
+  position: absolute;
+  text-align: justify;
+  top: 2165px;
+  width: 309px;
+}
+.desktop-1 .student-services-1-C61RwL {
+  background-color: transparent;
+  height: 92px;
+  left: 462px;
+  mix-blend-mode: normal;
+  overflow: hidden;
+  position: absolute;
+  top: 1287px;
+  width: 100px;
+}
+.desktop-1 .student-services-C61RwL {
+  background-color: transparent;
+  height: auto;
+  left: 462px;
+  letter-spacing: 0.00px;
+  line-height: normal;
+  mix-blend-mode: normal;
+  position: absolute;
+  text-align: justify;
+  top: 1400px;
+  width: 200px;
+}
+.desktop-1 .students-can-sc-tudent-services-C61RwL {
+  background-color: transparent;
+  height: auto;
+  left: 462px;
+  letter-spacing: 0.00px;
+  line-height: normal;
+  mix-blend-mode: normal;
+  position: absolute;
+  text-align: left;
+  top: 1437px;
+  width: 220px;
+}
+.desktop-1 .super-support-20-1-C61RwL {
+  background-color: transparent;
+  height: 70px;
+  left: 196px;
+  mix-blend-mode: normal;
+  overflow: hidden;
+  position: absolute;
+  top: 8464px;
+  width: 74px;
+}
+.desktop-1 .super-support-C61RwL {
+  background-color: transparent;
+  height: auto;
+  left: 285px;
+  letter-spacing: 0.00px;
+  line-height: normal;
+  mix-blend-mode: normal;
+  position: absolute;
+  text-align: justify;
+  top: 8464px;
+  width: 189px;
+}
+.desktop-1 .support-help-sc-filiate-program-C61RwL {
+  background-color: transparent;
+  height: auto;
+  left: 703px;
+  letter-spacing: 0.00px;
+  line-height: normal;
+  mix-blend-mode: normal;
+  position: absolute;
+  text-align: justify;
+  top: 10060px;
+  width: 158px;
+}
+.desktop-1 .team-management-1-C61RwL {
+  background-color: transparent;
+  height: 94px;
+  left: 180px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 4838px;
+  width: 105px;
+}
+.desktop-1 .test-centers-C61RwL {
+  background-color: transparent;
+  height: auto;
+  left: 735px;
+  letter-spacing: 0.00px;
+  line-height: normal;
+  mix-blend-mode: normal;
+  position: absolute;
+  text-align: justify;
+  top: 1400px;
+  width: 200px;
+}
+.desktop-1 .test-centers-VMr6Om {
+  background-color: transparent;
+  height: 92px;
+  left: 735px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 1287px;
+  width: 100px;
+}
+.desktop-1 .test-centers-ca-slots-and-more-C61RwL {
+  background-color: transparent;
+  height: auto;
+  left: 735px;
+  letter-spacing: 0.00px;
+  line-height: normal;
+  mix-blend-mode: normal;
+  position: absolute;
+  text-align: justify;
+  top: 1437px;
+  width: 226px;
+}
+.desktop-1 .third-party-integration-C61RwL {
+  background-color: transparent;
+  height: 69px;
+  left: 261px;
+  mix-blend-mode: normal;
+  overflow: hidden;
+  position: absolute;
+  top: 6507px;
+  width: 62px;
+}
+.desktop-1 .third-party-integrations-C61RwL {
+  background-color: transparent;
+  height: auto;
+  left: 183px;
+  letter-spacing: 0.00px;
+  line-height: normal;
+  mix-blend-mode: normal;
+  position: absolute;
+  text-align: center;
+  top: 6629px;
+  width: 220px;
+}
+.desktop-1 .title-C61RwL {
+  background-color: transparent;
+  color: var(--black);
+  font-family: var(--font-family-roboto);
+  font-size: var(--font-size-xxxxxxxxl);
+  font-style: normal;
+  font-weight: 500;
+  height: auto;
+  left: 527px;
+  letter-spacing: 0.00px;
+  line-height: normal;
+  mix-blend-mode: normal;
+  position: absolute;
+  text-align: justify;
+  top: 767px;
+  width: auto;
+}
+.desktop-1 .try-appointys-e-ree-account-now-C61RwL {
+  background-color: transparent;
+  color: var(--black);
+  font-family: var(--font-family-roboto);
+  font-size: var(--font-size-xxxxxxxl);
+  font-style: normal;
+  font-weight: 700;
+  height: auto;
+  left: 138px;
+  letter-spacing: 0.00px;
+  line-height: normal;
+  mix-blend-mode: normal;
+  position: absolute;
+  text-align: justify;
+  top: 9218px;
+  width: 1165px;
+}
+.desktop-1 .tutors-C61RwL {
+  background-color: transparent;
+  height: auto;
+  left: 180px;
+  letter-spacing: 0.00px;
+  line-height: normal;
+  mix-blend-mode: normal;
+  position: absolute;
+  text-align: justify;
+  top: 1400px;
+  width: 200px;
+}
+.desktop-1 .tutors-VMr6Om {
+  background-color: transparent;
+  height: 92px;
+  left: 180px;
+  mix-blend-mode: normal;
+  overflow: hidden;
+  position: absolute;
+  top: 1287px;
+  width: 104px;
+}
+.desktop-1 .tutors-can-sche-udents-and-more-C61RwL {
+  background-color: transparent;
+  height: auto;
+  left: 180px;
+  letter-spacing: 0.00px;
+  line-height: normal;
+  mix-blend-mode: normal;
+  position: absolute;
+  text-align: left;
+  top: 1437px;
+  width: 224px;
+}
+.desktop-1 .universities-and-colleges-C61RwL {
+  background-color: transparent;
+  height: 92px;
+  left: 462px;
+  mix-blend-mode: normal;
+  overflow: hidden;
+  position: absolute;
+  top: 992px;
+  width: 100px;
+}
+.desktop-1 .universities-colleges-C61RwL {
+  background-color: transparent;
+  height: auto;
+  left: 462px;
+  letter-spacing: 0.00px;
+  line-height: normal;
+  mix-blend-mode: normal;
+  position: absolute;
+  text-align: justify;
+  top: 1105px;
+  width: 209px;
+}
+.desktop-1 .vector-06zbDa {
+  background-color: transparent;
+  height: 12px;
+  left: 379px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 119px;
+  width: 18px;
+}
+.desktop-1 .vector-0b6qq8 {
+  background-color: transparent;
+  height: 34px;
+  left: 23px;
+  position: absolute;
+  top: 57px;
+  width: 57px;
+}
+.desktop-1 .vector-0xxlY5 {
+  background-color: transparent;
+  height: 16px;
+  left: -1px;
+  position: absolute;
+  top: 16px;
+  width: 8px;
+}
+.desktop-1 .vector-16CB1J {
+  background-color: transparent;
+  height: 15px;
+  left: 43px;
+  position: absolute;
+  top: 23px;
+  width: 2px;
+}
+.desktop-1 .vector-1CFdjK {
+  background-color: transparent;
+  height: 18px;
+  left: 3px;
+  position: absolute;
+  top: -0px;
+  width: 43px;
+}
+.desktop-1 .vector-1cUadW {
+  background-color: transparent;
+  height: 13px;
+  left: 45px;
+  position: absolute;
+  top: 22px;
+  width: 9px;
+}
+.desktop-1 .vector-1rYzk8 {
+  background-color: transparent;
+  height: 4px;
+  left: 21px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 7px;
+  width: 5px;
+}
+.desktop-1 .vector-2eqayG {
+  background-color: transparent;
+  height: 48px;
+  left: 29px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 1px;
+  width: 33px;
+}
+.desktop-1 .vector-2zNQFr {
+  background-color: transparent;
+  height: 16px;
+  left: 33px;
+  position: absolute;
+  top: 29px;
+  width: 13px;
+}
+.desktop-1 .vector-33ff80 {
+  background-color: transparent;
+  height: 5px;
+  left: 139px;
+  position: absolute;
+  top: 110px;
+  width: 45px;
+}
+.desktop-1 .vector-34Zje6 {
+  background-color: transparent;
+  height: 108px;
+  left: 231px;
+  position: absolute;
+  top: 22px;
+  width: 115px;
+}
+.desktop-1 .vector-3AMgjh {
+  background-color: transparent;
+  height: 19px;
+  left: 118px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 238px;
+  width: 15px;
+}
+.desktop-1 .vector-3PZDGn {
+  background-color: transparent;
+  height: 17px;
+  left: 428px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 139px;
+  width: 61px;
+}
+.desktop-1 .vector-3e95TV {
+  background-color: transparent;
+  height: 18px;
+  left: 270px;
+  position: absolute;
+  top: 81px;
+  width: 18px;
+}
+.desktop-1 .vector-3lXS0v {
+  background-color: transparent;
+  height: 12px;
+  left: 63px;
+  position: absolute;
+  top: 65px;
+  width: 14px;
+}
+.desktop-1 .vector-3vTEqN {
+  background-color: transparent;
+  height: 11px;
+  left: 14px;
+  position: absolute;
+  top: 11px;
+  width: 15px;
+}
+.desktop-1 .vector-4hl7zo {
+  background-color: transparent;
+  height: 52px;
+  left: 390px;
+  position: absolute;
+  top: 130px;
+  width: 60px;
+}
+.desktop-1 .vector-4vgeED {
+  background-color: transparent;
+  height: 113px;
+  left: -0px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 173px;
+  width: 136px;
+}
+.desktop-1 .vector-56x9B8 {
+  background-color: transparent;
+  height: 8px;
+  left: 9px;
+  position: absolute;
+  top: 21px;
+  width: 11px;
+}
+.desktop-1 .vector-5PuQYL {
+  background-color: transparent;
+  height: 61px;
+  left: 24px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 21px;
+  width: 62px;
+}
+.desktop-1 .vector-60jan1 {
+  background-color: transparent;
+  height: 16px;
+  left: 42px;
+  position: absolute;
+  top: 16px;
+  width: 8px;
+}
+.desktop-1 .vector-66B93Z {
+  background-color: transparent;
+  height: 2px;
+  left: 15px;
+  position: absolute;
+  top: 48px;
+  width: 33px;
+}
+.desktop-1 .vector-66Wxmg {
+  background-color: transparent;
+  height: 45px;
+  left: 255px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 49px;
+  width: 48px;
+}
+.desktop-1 .vector-6CAGFi {
+  background-color: transparent;
+  height: 39px;
+  left: -0px;
+  position: absolute;
+  top: 36px;
+  width: 66px;
+}
+.desktop-1 .vector-6H6kyB {
+  background-color: transparent;
+  height: 3px;
+  left: 25px;
+  position: absolute;
+  top: 42px;
+  width: 73px;
+}
+.desktop-1 .vector-6Qxulc {
+  background-color: transparent;
+  height: 12px;
+  left: 40px;
+  position: absolute;
+  top: 33px;
+  width: 9px;
+}
+.desktop-1 .vector-6bVGVH {
+  background-color: transparent;
+  height: 15px;
+  left: 69px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 158px;
+  width: 19px;
+}
+.desktop-1 .vector-6yoxxx {
+  background-color: transparent;
+  height: 26px;
+  left: 57px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 42px;
+  width: 26px;
+}
+.desktop-1 .vector-72qHWe {
+  background-color: transparent;
+  height: 40px;
+  left: 287px;
+  position: absolute;
+  top: 38px;
+  width: 39px;
+}
+.desktop-1 .vector-7Alblq {
+  background-color: transparent;
+  height: 21px;
+  left: 48px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 28px;
+  width: 1px;
+}
+.desktop-1 .vector-7Bt2ZY {
+  background-color: transparent;
+  height: 28px;
+  left: 21px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 231px;
+  width: 148px;
+}
+.desktop-1 .vector-7raWjO {
+  background-color: transparent;
+  height: 3px;
+  left: 261px;
+  position: absolute;
+  top: 79px;
+  width: 37px;
+}
+.desktop-1 .vector-8Ooxiw {
+  background-color: transparent;
+  height: 23px;
+  left: 72px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 67px;
+  width: 23px;
+}
+.desktop-1 .vector-8UVACp {
+  background-color: transparent;
+  height: 12px;
+  left: 90px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 73px;
+  width: 9px;
+}
+.desktop-1 .vector-8xwNCy {
+  background-color: transparent;
+  height: 18px;
+  left: 24px;
+  position: absolute;
+  top: 6px;
+  width: 26px;
+}
+.desktop-1 .vector-97Ka6G {
+  background-color: transparent;
+  height: 129px;
+  left: 265px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 199px;
+  width: 107px;
+}
+.desktop-1 .vector-97dItL {
+  background-color: transparent;
+  height: 35px;
+  left: 35px;
+  position: absolute;
+  top: -0px;
+  width: 27px;
+}
+.desktop-1 .vector-98wRzj {
+  background-color: transparent;
+  height: 7px;
+  left: 35px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 210px;
+  width: 53px;
+}
+.desktop-1 .vector-9aAxNS {
+  background-color: transparent;
+  height: 75px;
+  left: 21px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 256px;
+  width: 148px;
+}
+.desktop-1 .vector-9ca116 {
+  background-color: transparent;
+  height: 46px;
+  left: -0px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 14px;
+  width: 37px;
+}
+.desktop-1 .vector-9kVzRW {
+  background-color: transparent;
+  height: 13px;
+  left: 20px;
+  position: absolute;
+  top: 22px;
+  width: 9px;
+}
+.desktop-1 .vector-ARfsxl {
+  background-color: transparent;
+  height: 3px;
+  left: 0px;
+  position: absolute;
+  top: 11px;
+  width: 16px;
+}
+.desktop-1 .vector-BE2FAr {
+  background-color: transparent;
+  height: 37px;
+  left: 7px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 39px;
+  width: 89px;
+}
+.desktop-1 .vector-BIKdXf {
+  background-color: transparent;
+  height: 9px;
+  left: 381px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 120px;
+  width: 11px;
+}
+.desktop-1 .vector-Bm6vYK {
+  background-color: transparent;
+  height: 7px;
+  left: 103px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 182px;
+  width: 7px;
+}
+.desktop-1 .vector-C61RwL {
+  background-color: transparent;
+  height: 57px;
+  left: 746px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 7289px;
+  width: 50px;
+}
+.desktop-1 .vector-CdShXH {
+  background-color: transparent;
+  height: 24px;
+  left: 1px;
+  position: absolute;
+  top: 44px;
+  width: 47px;
+}
+.desktop-1 .vector-CkXCpu {
+  background-color: transparent;
+  height: 23px;
+  left: 35px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 40px;
+  width: 24px;
+}
+.desktop-1 .vector-CldKVZ {
+  background-color: transparent;
+  height: 61px;
+  left: 26px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 30px;
+  width: 71px;
+}
+.desktop-1 .vector-CuNNCH {
+  background-color: transparent;
+  height: 38px;
+  left: 288px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 39px;
+  width: 38px;
+}
+.desktop-1 .vector-CuWtsY {
+  background-color: transparent;
+  height: 92px;
+  left: 127px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 58px;
+  width: 70px;
+}
+.desktop-1 .vector-D8bfa3 {
+  background-color: transparent;
+  height: 15px;
+  left: 115px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 158px;
+  width: 18px;
+}
+.desktop-1 .vector-D9vIxh {
+  background-color: transparent;
+  height: 19px;
+  left: 55px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 238px;
+  width: 16px;
+}
+.desktop-1 .vector-DG6s0H {
+  background-color: transparent;
+  height: 5px;
+  left: 139px;
+  position: absolute;
+  top: 96px;
+  width: 45px;
+}
+.desktop-1 .vector-DISSju {
+  background-color: transparent;
+  height: 29px;
+  left: -0px;
+  position: absolute;
+  top: 13px;
+  width: 33px;
+}
+.desktop-1 .vector-DXwYnj {
+  background-color: transparent;
+  height: 9px;
+  left: 192px;
+  position: absolute;
+  top: 54px;
+  width: 8px;
+}
+.desktop-1 .vector-Eyxbm7 {
+  background-color: transparent;
+  height: 107px;
+  left: 311px;
+  position: absolute;
+  top: 222px;
+  width: 25px;
+}
+.desktop-1 .vector-FFS5xd {
+  background-color: transparent;
+  height: 152px;
+  left: 221px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 197px;
+  width: 90px;
+}
+.desktop-1 .vector-FctBMH {
+  background-color: transparent;
+  height: 21px;
+  left: 369px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 319px;
+  width: 54px;
+}
+.desktop-1 .vector-FdCsSN {
+  background-color: transparent;
+  height: 50px;
+  left: 28px;
+  position: absolute;
+  top: 0px;
+  width: 35px;
+}
+.desktop-1 .vector-FfwuR2 {
+  background-color: transparent;
+  height: 29px;
+  left: 27px;
+  position: absolute;
+  top: 17px;
+  width: 13px;
+}
+.desktop-1 .vector-Fz9JTu {
+  background-color: transparent;
+  height: 12px;
+  left: 42px;
+  position: absolute;
+  top: 82px;
+  width: 25px;
+}
+.desktop-1 .vector-GODHJ6 {
+  background-color: transparent;
+  height: 26px;
+  left: 3px;
+  position: absolute;
+  top: 0px;
+  width: 32px;
+}
+.desktop-1 .vector-GP7hxC {
+  background-color: transparent;
+  height: 6px;
+  left: 472px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 245px;
+  width: 4px;
+}
+.desktop-1 .vector-GU4x7Z {
+  background-color: transparent;
+  height: 10px;
+  left: 27px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 33px;
+  width: 14px;
+}
+.desktop-1 .vector-GWyGEe {
+  background-color: transparent;
+  height: 3px;
+  left: 403px;
+  position: absolute;
+  top: 268px;
+  width: 31px;
+}
+.desktop-1 .vector-GdVUhP {
+  background-color: transparent;
+  height: 21px;
+  left: 36px;
+  position: absolute;
+  top: 48px;
+  width: 25px;
+}
+.desktop-1 .vector-GnrhNu {
+  background-color: transparent;
+  height: 3px;
+  left: 29px;
+  position: absolute;
+  top: 278px;
+  width: 110px;
+}
+.desktop-1 .vector-GxxHYH {
+  background-color: transparent;
+  height: 22px;
+  left: 87px;
+  position: absolute;
+  top: 285px;
+  width: 20px;
+}
+.desktop-1 .vector-HAAave {
+  background-color: transparent;
+  height: 6px;
+  left: 421px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 245px;
+  width: 4px;
+}
+.desktop-1 .vector-HUT6Z7 {
+  background-color: transparent;
+  height: 51px;
+  left: 391px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 130px;
+  width: 58px;
+}
+.desktop-1 .vector-IEG1p5 {
+  background-color: transparent;
+  height: 3px;
+  left: 13px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 150px;
+  width: 2px;
+}
+.desktop-1 .vector-IKEr8Q {
+  background-color: transparent;
+  height: 14px;
+  left: 103px;
+  position: absolute;
+  top: 209px;
+  width: 16px;
+}
+.desktop-1 .vector-IfP9gu {
+  background-color: transparent;
+  height: 4px;
+  left: 19px;
+  position: absolute;
+  top: 61px;
+  width: 24px;
+}
+.desktop-1 .vector-IjVMvu {
+  background-color: transparent;
+  height: 15px;
+  left: 127px;
+  position: absolute;
+  top: 59px;
+  width: 15px;
+}
+.desktop-1 .vector-IsF7rP {
+  background-color: transparent;
+  height: 11px;
+  left: 8px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 16px;
+  width: 7px;
+}
+.desktop-1 .vector-Iw22i4 {
+  background-color: transparent;
+  height: 60px;
+  left: 37px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: -0px;
+  width: 37px;
+}
+.desktop-1 .vector-J1qs06 {
+  background-color: transparent;
+  height: 6px;
+  left: 460px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 245px;
+  width: 4px;
+}
+.desktop-1 .vector-JMEXys {
+  background-color: transparent;
+  height: 19px;
+  left: 93px;
+  position: absolute;
+  top: 56px;
+  width: 3px;
+}
+.desktop-1 .vector-JTxx50 {
+  background-color: transparent;
+  height: 9px;
+  left: 39px;
+  position: absolute;
+  top: 30px;
+  width: 8px;
+}
+.desktop-1 .vector-Jdn2Fx {
+  background-color: transparent;
+  height: 107px;
+  left: 231px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 23px;
+  width: 113px;
+}
+.desktop-1 .vector-JlwfeW {
+  background-color: transparent;
+  height: 6px;
+  left: 411px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 149px;
+  width: 5px;
+}
+.desktop-1 .vector-KHaHdj {
+  background-color: transparent;
+  height: 15px;
+  left: 10px;
+  position: absolute;
+  top: 36px;
+  width: 40px;
+}
+.desktop-1 .vector-KMK6pg {
+  background-color: transparent;
+  height: 31px;
+  left: 179px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 327px;
+  width: 135px;
+}
+.desktop-1 .vector-Kza69s {
+  background-color: transparent;
+  height: 26px;
+  left: 21px;
+  position: absolute;
+  top: 161px;
+  width: 18px;
+}
+.desktop-1 .vector-M9GIJx {
+  background-color: transparent;
+  height: 21px;
+  left: -1px;
+  position: absolute;
+  top: 48px;
+  width: 25px;
+}
+.desktop-1 .vector-MA9v2O {
+  background-color: transparent;
+  height: 59px;
+  left: 5px;
+  position: absolute;
+  top: 3px;
+  width: 41px;
+}
+.desktop-1 .vector-MOjPqg {
+  background-color: transparent;
+  height: 22px;
+  left: 355px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 200px;
+  width: 84px;
+}
+.desktop-1 .vector-MhDovC {
+  background-color: transparent;
+  height: 7px;
+  left: 65px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 182px;
+  width: 6px;
+}
+.desktop-1 .vector-MtcixW {
+  background-color: transparent;
+  height: 9px;
+  left: -0px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: -0px;
+  width: 8px;
+}
+.desktop-1 .vector-N7m3ck {
+  background-color: transparent;
+  height: 2px;
+  left: 24px;
+  position: absolute;
+  top: 327px;
+  width: 509px;
+}
+.desktop-1 .vector-NMoxxM {
+  background-color: transparent;
+  height: 69px;
+  left: 373px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 113px;
+  width: 82px;
+}
+.desktop-1 .vector-NVE6tL {
+  background-color: transparent;
+  height: 10px;
+  left: 171px;
+  position: absolute;
+  top: 250px;
+  width: 17px;
+}
+.desktop-1 .vector-NmYcUW {
+  background-color: transparent;
+  height: 6px;
+  left: 466px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 245px;
+  width: 4px;
+}
+.desktop-1 .vector-Nx8ALI {
+  background-color: transparent;
+  height: 20px;
+  left: 20px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 31px;
+  width: 30px;
+}
+.desktop-1 .vector-OHRQhL {
+  background-color: transparent;
+  height: 6px;
+  left: 450px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 245px;
+  width: 4px;
+}
+.desktop-1 .vector-PDrWvR {
+  background-color: transparent;
+  height: 59px;
+  left: 317px;
+  position: absolute;
+  top: 270px;
+  width: 39px;
+}
+.desktop-1 .vector-PYS3IC {
+  background-color: transparent;
+  height: 53px;
+  left: 390px;
+  position: absolute;
+  top: 129px;
+  width: 60px;
+}
+.desktop-1 .vector-PhW1DS {
+  background-color: transparent;
+  height: 50px;
+  left: 150px;
+  position: absolute;
+  top: 231px;
+  width: 49px;
+}
+.desktop-1 .vector-PiL9yv {
+  background-color: transparent;
+  height: 12px;
+  left: 436px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 59px;
+  width: 73px;
+}
+.desktop-1 .vector-PnNpRx {
+  background-color: transparent;
+  height: 4px;
+  left: 12px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 7px;
+  width: 5px;
+}
+.desktop-1 .vector-QQFZbc {
+  background-color: transparent;
+  height: 91px;
+  left: 0px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: -0px;
+  width: 93px;
+}
+.desktop-1 .vector-QjM2mr {
+  background-color: transparent;
+  height: 29px;
+  left: 53px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 243px;
+  width: 29px;
+}
+.desktop-1 .vector-QzKJoT {
+  background-color: transparent;
+  height: 18px;
+  left: 24px;
+  position: absolute;
+  top: 12px;
+  width: 22px;
+}
+.desktop-1 .vector-R4LxSW {
+  background-color: transparent;
+  height: 15px;
+  left: 64px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 35px;
+  width: 15px;
+}
+.desktop-1 .vector-RGOT49 {
+  background-color: transparent;
+  height: 9px;
+  left: 15px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: -0px;
+  width: 9px;
+}
+.desktop-1 .vector-RHBaVS {
+  background-color: transparent;
+  height: 28px;
+  left: 17px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 205px;
+  width: 29px;
+}
+.desktop-1 .vector-RfxqmV {
+  background-color: transparent;
+  height: 19px;
+  left: 97px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 238px;
+  width: 15px;
+}
+.desktop-1 .vector-S6aIfp {
+  background-color: transparent;
+  height: 11px;
+  left: 43px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 82px;
+  width: 23px;
+}
+.desktop-1 .vector-S8peIn {
+  background-color: transparent;
+  height: 12px;
+  left: 39px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 204px;
+  width: 76px;
+}
+.desktop-1 .vector-SFrmBm {
+  background-color: transparent;
+  height: 20px;
+  left: -0px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 12px;
+  width: 19px;
+}
+.desktop-1 .vector-ShpsLe {
+  background-color: transparent;
+  height: 6px;
+  left: 444px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 245px;
+  width: 4px;
+}
+.desktop-1 .vector-Svr90z {
+  background-color: transparent;
+  height: 63px;
+  left: 25px;
+  position: absolute;
+  top: 29px;
+  width: 73px;
+}
+.desktop-1 .vector-SxXSZT {
+  background-color: transparent;
+  height: 53px;
+  left: -0px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: -0px;
+  width: 50px;
+}
+.desktop-1 .vector-TAwS12 {
+  background-color: transparent;
+  height: 9px;
+  left: 33px;
+  position: absolute;
+  top: 279px;
+  width: 9px;
+}
+.desktop-1 .vector-TTV9D0 {
+  background-color: transparent;
+  height: 58px;
+  left: 6px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 3px;
+  width: 39px;
+}
+.desktop-1 .vector-TU7248 {
+  background-color: transparent;
+  height: 26px;
+  left: 58px;
+  position: absolute;
+  top: 161px;
+  width: 18px;
+}
+.desktop-1 .vector-TZUrxk {
+  background-color: transparent;
+  height: 20px;
+  left: 37px;
+  position: absolute;
+  top: 39px;
+  width: 14px;
+}
+.desktop-1 .vector-Tl4bYv {
+  background-color: transparent;
+  height: 63px;
+  left: 335px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 224px;
+  width: 121px;
+}
+.desktop-1 .vector-TxqElB {
+  background-color: transparent;
+  height: 15px;
+  left: 73px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 336px;
+  width: 10px;
+}
+.desktop-1 .vector-TzxBax {
+  background-color: transparent;
+  height: 69px;
+  left: 373px;
+  position: absolute;
+  top: 113px;
+  width: 82px;
+}
+.desktop-1 .vector-UDoxUZ {
+  background-color: transparent;
+  height: 15px;
+  left: 47px;
+  position: absolute;
+  top: 36px;
+  width: 39px;
+}
+.desktop-1 .vector-UNY1co {
+  background-color: transparent;
+  height: 76px;
+  left: 278px;
+  position: absolute;
+  top: 253px;
+  width: 31px;
+}
+.desktop-1 .vector-UOOziC {
+  background-color: transparent;
+  height: 152px;
+  left: 157px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 197px;
+  width: 154px;
+}
+.desktop-1 .vector-VMu6LW {
+  background-color: transparent;
+  height: 20px;
+  left: -0px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 12px;
+  width: 19px;
+}
+.desktop-1 .vector-VTxh6x {
+  background-color: transparent;
+  height: 7px;
+  left: 33px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 13px;
+  width: 29px;
+}
+.desktop-1 .vector-WExKi2 {
+  background-color: transparent;
+  height: 15px;
+  left: 92px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 158px;
+  width: 18px;
+}
+.desktop-1 .vector-WmHvbQ {
+  background-color: transparent;
+  height: 2px;
+  left: 403px;
+  position: absolute;
+  top: 263px;
+  width: 15px;
+}
+.desktop-1 .vector-WuuR3I {
+  background-color: transparent;
+  height: 9px;
+  left: 7px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: -0px;
+  width: 9px;
+}
+.desktop-1 .vector-XEk3dj {
+  background-color: transparent;
+  height: 5px;
+  left: 151px;
+  position: absolute;
+  top: 80px;
+  width: 33px;
+}
+.desktop-1 .vector-XFweGa {
+  background-color: transparent;
+  height: 7px;
+  left: 35px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 190px;
+  width: 71px;
+}
+.desktop-1 .vector-XPgmFW {
+  background-color: transparent;
+  height: 34px;
+  left: 34px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 148px;
+  width: 28px;
+}
+.desktop-1 .vector-XnBOyS {
+  background-color: transparent;
+  height: 38px;
+  left: 7px;
+  position: absolute;
+  top: 5px;
+  width: 35px;
+}
+.desktop-1 .vector-Xr98dW {
+  background-color: transparent;
+  height: 69px;
+  left: -0px;
+  position: absolute;
+  top: -0px;
+  width: 64px;
+}
+.desktop-1 .vector-Xs9RZg {
+  background-color: transparent;
+  height: 12px;
+  left: 426px;
+  position: absolute;
+  top: 150px;
+  width: 10px;
+}
+.desktop-1 .vector-XsK4k3 {
+  background-color: transparent;
+  height: 113px;
+  left: -0px;
+  position: absolute;
+  top: 173px;
+  width: 136px;
+}
+.desktop-1 .vector-Y1SOF5 {
+  background-color: transparent;
+  height: 91px;
+  left: -0px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: -0px;
+  width: 94px;
+}
+.desktop-1 .vector-YLSUqx {
+  background-color: transparent;
+  height: 9px;
+  left: 48px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 235px;
+  width: 45px;
+}
+.desktop-1 .vector-Yk46xN {
+  background-color: transparent;
+  height: 10px;
+  left: 32px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 36px;
+  width: 6px;
+}
+.desktop-1 .vector-YrP2VV {
+  background-color: transparent;
+  height: 3px;
+  left: 24px;
+  position: absolute;
+  top: 80px;
+  width: 46px;
+}
+.desktop-1 .vector-ZAJBJh {
+  background-color: transparent;
+  height: 55px;
+  left: 18px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 26px;
+  width: 54px;
+}
+.desktop-1 .vector-ZDV3Au {
+  background-color: transparent;
+  height: 42px;
+  left: 37px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 61px;
+  width: 37px;
+}
+.desktop-1 .vector-ZWubNv {
+  background-color: transparent;
+  height: 10px;
+  left: 382px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 324px;
+  width: 27px;
+}
+.desktop-1 .vector-ZaZ8nt {
+  background-color: transparent;
+  height: 28px;
+  left: 49px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 65px;
+  width: 42px;
+}
+.desktop-1 .vector-ZfOuxy {
+  background-color: transparent;
+  height: 9px;
+  left: 68px;
+  position: absolute;
+  top: 74px;
+  width: 3px;
+}
+.desktop-1 .vector-ZmI49U {
+  background-color: transparent;
+  height: 7px;
+  left: 35px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 200px;
+  width: 46px;
+}
+.desktop-1 .vector-Zo1KEj {
+  background-color: transparent;
+  height: 34px;
+  left: 335px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 193px;
+  width: 121px;
+}
+.desktop-1 .vector-a3vFub {
+  background-color: transparent;
+  height: 91px;
+  left: -0px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: -0px;
+  width: 90px;
+}
+.desktop-1 .vector-aAWzHX {
+  background-color: transparent;
+  height: 31px;
+  left: 55px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 27px;
+  width: 32px;
+}
+.desktop-1 .vector-aSn0AA {
+  background-color: transparent;
+  height: 63px;
+  left: 23px;
+  position: absolute;
+  top: 20px;
+  width: 63px;
+}
+.desktop-1 .vector-aXw8Iq {
+  background-color: transparent;
+  height: 9px;
+  left: 6px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 151px;
+  width: 8px;
+}
+.desktop-1 .vector-abDJSg {
+  background-color: transparent;
+  height: 2px;
+  left: 0px;
+  position: absolute;
+  top: 4px;
+  width: 16px;
+}
+.desktop-1 .vector-b8OQbE {
+  background-color: transparent;
+  height: 10px;
+  left: 273px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 44px;
+  width: 10px;
+}
+.desktop-1 .vector-b9GPNm {
+  background-color: transparent;
+  height: 36px;
+  left: -0px;
+  position: absolute;
+  top: 33px;
+  width: 27px;
+}
+.desktop-1 .vector-bYIZvV {
+  background-color: transparent;
+  height: 4px;
+  left: 21px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 15px;
+  width: 5px;
+}
+.desktop-1 .vector-bfxJ98 {
+  background-color: transparent;
+  height: 22px;
+  left: 5px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 115px;
+  width: 10px;
+}
+.desktop-1 .vector-bqaz0m {
+  background-color: transparent;
+  height: 19px;
+  left: 76px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 238px;
+  width: 16px;
+}
+.desktop-1 .vector-bxMFMm {
+  background-color: transparent;
+  height: 22px;
+  left: 407px;
+  position: absolute;
+  top: 131px;
+  width: 25px;
+}
+.desktop-1 .vector-cUABpg {
+  background-color: transparent;
+  height: 6px;
+  left: 409px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 245px;
+  width: 4px;
+}
+.desktop-1 .vector-cbDvSl {
+  background-color: transparent;
+  height: 8px;
+  left: 35px;
+  position: absolute;
+  top: 234px;
+  width: 10px;
+}
+.desktop-1 .vector-cgAFwg {
+  background-color: transparent;
+  height: 31px;
+  left: 29px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 112px;
+  width: 110px;
+}
+.desktop-1 .vector-convN8 {
+  background-color: transparent;
+  height: 33px;
+  left: 171px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 51px;
+  width: 33px;
+}
+.desktop-1 .vector-dhuHLe {
+  background-color: transparent;
+  height: 7px;
+  left: 40px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 63px;
+  width: 7px;
+}
+.desktop-1 .vector-dilT5x {
+  background-color: transparent;
+  height: 7px;
+  left: 43px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 85px;
+  width: 8px;
+}
+.desktop-1 .vector-dpwBHc {
+  background-color: transparent;
+  height: 48px;
+  left: 12px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 24px;
+  width: 63px;
+}
+.desktop-1 .vector-duuGUj {
+  background-color: transparent;
+  height: 19px;
+  left: 35px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 238px;
+  width: 15px;
+}
+.desktop-1 .vector-eEK94r {
+  background-color: transparent;
+  height: 25px;
+  left: 50px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 124px;
+  width: 67px;
+}
+.desktop-1 .vector-eHpc5w {
+  background-color: transparent;
+  height: 10px;
+  left: 38px;
+  position: absolute;
+  top: 18px;
+  width: 9px;
+}
+.desktop-1 .vector-eScc4O {
+  background-color: transparent;
+  height: 29px;
+  left: 17px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 243px;
+  width: 29px;
+}
+.desktop-1 .vector-eaQd9n {
+  background-color: transparent;
+  height: 20px;
+  left: 4px;
+  position: absolute;
+  top: -1px;
+  width: 8px;
+}
+.desktop-1 .vector-exFwOz {
+  background-color: transparent;
+  height: 25px;
+  left: 19px;
+  position: absolute;
+  top: 29px;
+  width: 31px;
+}
+.desktop-1 .vector-fbmlSd {
+  background-color: transparent;
+  height: 107px;
+  left: 335px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 193px;
+  width: 121px;
+}
+.desktop-1 .vector-fvxSqc {
+  background-color: transparent;
+  height: 17px;
+  left: 466px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 258px;
+  width: 17px;
+}
+.desktop-1 .vector-g2ZK3U {
+  background-color: transparent;
+  height: 10px;
+  left: -1px;
+  position: absolute;
+  top: -0px;
+  width: 10px;
+}
+.desktop-1 .vector-h6sHkQ {
+  background-color: transparent;
+  height: 10px;
+  left: 48px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 279px;
+  width: 45px;
+}
+.desktop-1 .vector-hDpXBV {
+  background-color: transparent;
+  height: 15px;
+  left: 78px;
+  position: absolute;
+  top: 23px;
+  width: 3px;
+}
+.desktop-1 .vector-hDzv9m {
+  background-color: transparent;
+  height: 6px;
+  left: 415px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 245px;
+  width: 4px;
+}
+.desktop-1 .vector-hNs49W {
+  background-color: transparent;
+  height: 7px;
+  left: 7px;
+  position: absolute;
+  top: 5px;
+  width: 8px;
+}
+.desktop-1 .vector-hskrf6 {
+  background-color: transparent;
+  height: 6px;
+  left: 478px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 245px;
+  width: 4px;
+}
+.desktop-1 .vector-i2ltDN {
+  background-color: transparent;
+  height: 10px;
+  left: 33px;
+  position: absolute;
+  top: 256px;
+  width: 9px;
+}
+.desktop-1 .vector-iGfu7a {
+  background-color: transparent;
+  height: 91px;
+  left: -0px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 1px;
+  width: 90px;
+}
+.desktop-1 .vector-iNSey1 {
+  background-color: transparent;
+  height: 7px;
+  left: 33px;
+  position: absolute;
+  top: 40px;
+  width: 10px;
+}
+.desktop-1 .vector-iNpSXs {
+  background-color: transparent;
+  height: 6px;
+  left: 432px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 245px;
+  width: 4px;
+}
+.desktop-1 .vector-ilUbee {
+  background-color: transparent;
+  height: 73px;
+  left: 392px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 213px;
+  width: 105px;
+}
+.desktop-1 .vector-inXcLA {
+  background-color: transparent;
+  height: 26px;
+  left: 97px;
+  position: absolute;
+  top: 161px;
+  width: 18px;
+}
+.desktop-1 .vector-jPxRFP {
+  background-color: transparent;
+  height: 6px;
+  left: 403px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 245px;
+  width: 5px;
+}
+.desktop-1 .vector-jwNNqf {
+  background-color: transparent;
+  height: 21px;
+  left: 72px;
+  position: absolute;
+  top: 48px;
+  width: 25px;
+}
+.desktop-1 .vector-k6GkWM {
+  background-color: transparent;
+  height: 12px;
+  left: 16px;
+  position: absolute;
+  top: 2px;
+  width: 11px;
+}
+.desktop-1 .vector-kRwasT {
+  background-color: transparent;
+  height: 9px;
+  left: 23px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: -0px;
+  width: 12px;
+}
+.desktop-1 .vector-krRzAW {
+  background-color: transparent;
+  height: 22px;
+  left: 305px;
+  position: absolute;
+  top: 45px;
+  width: 9px;
+}
+.desktop-1 .vector-kx7xAm {
+  background-color: transparent;
+  height: 268px;
+  left: 28px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 62px;
+  width: 446px;
+}
+.desktop-1 .vector-lRY5Mv {
+  background-color: transparent;
+  height: 51px;
+  left: 33px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 41px;
+  width: 50px;
+}
+.desktop-1 .vector-lU878o {
+  background-color: transparent;
+  height: 42px;
+  left: -0px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 61px;
+  width: 37px;
+}
+.desktop-1 .vector-lbxRCI {
+  background-color: transparent;
+  height: 9px;
+  left: 403px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 295px;
+  width: 12px;
+}
+.desktop-1 .vector-leFX8j {
+  background-color: transparent;
+  height: 24px;
+  left: 19px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 196px;
+  width: 116px;
+}
+.desktop-1 .vector-lwTcAv {
+  background-color: transparent;
+  height: 85px;
+  left: 23px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 12px;
+  width: 48px;
+}
+.desktop-1 .vector-m6UJYn {
+  background-color: transparent;
+  height: 92px;
+  left: 0px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: -1px;
+  width: 94px;
+}
+.desktop-1 .vector-mCcQNR {
+  background-color: transparent;
+  height: 20px;
+  left: -1px;
+  position: absolute;
+  top: -1px;
+  width: 19px;
+}
+.desktop-1 .vector-n4ZVdO {
+  background-color: transparent;
+  height: 19px;
+  left: 389px;
+  position: absolute;
+  top: 245px;
+  width: 16px;
+}
+.desktop-1 .vector-nALNsC {
+  background-color: transparent;
+  height: 6px;
+  left: 402px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 149px;
+  width: 5px;
+}
+.desktop-1 .vector-nGTrif {
+  background-color: transparent;
+  height: 91px;
+  left: -0px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: -0px;
+  width: 90px;
+}
+.desktop-1 .vector-ne4bhV {
+  background-color: transparent;
+  height: 6px;
+  left: 139px;
+  position: absolute;
+  top: 124px;
+  width: 45px;
+}
+.desktop-1 .vector-oM358b {
+  background-color: transparent;
+  height: 3px;
+  left: 29px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 263px;
+  width: 110px;
+}
+.desktop-1 .vector-oWk8ss {
+  background-color: transparent;
+  height: 10px;
+  left: 204px;
+  position: absolute;
+  top: 250px;
+  width: 17px;
+}
+.desktop-1 .vector-oiKNHh {
+  background-color: transparent;
+  height: 29px;
+  left: 89px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 243px;
+  width: 29px;
+}
+.desktop-1 .vector-olX9ej {
+  background-color: transparent;
+  height: 30px;
+  left: 30px;
+  position: absolute;
+  top: -0px;
+  width: 36px;
+}
+.desktop-1 .vector-oyPScF {
+  background-color: transparent;
+  height: 17px;
+  left: 428px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 176px;
+  width: 61px;
+}
+.desktop-1 .vector-p4NBst {
+  background-color: transparent;
+  height: 51px;
+  left: 415px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 130px;
+  width: 34px;
+}
+.desktop-1 .vector-puL3PG {
+  background-color: transparent;
+  height: 12px;
+  left: -1px;
+  position: absolute;
+  top: 20px;
+  width: 13px;
+}
+.desktop-1 .vector-pxdBrh {
+  background-color: transparent;
+  height: 154px;
+  left: 156px;
+  position: absolute;
+  top: 196px;
+  width: 156px;
+}
+.desktop-1 .vector-qAAhqs {
+  background-color: transparent;
+  height: 71px;
+  left: 0px;
+  position: absolute;
+  top: -1px;
+  width: 74px;
+}
+.desktop-1 .vector-qQU8EP {
+  background-color: transparent;
+  height: 50px;
+  left: 196px;
+  position: absolute;
+  top: 231px;
+  width: 50px;
+}
+.desktop-1 .vector-r3ixoy {
+  background-color: transparent;
+  height: 17px;
+  left: 457px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 258px;
+  width: 17px;
+}
+.desktop-1 .vector-rNDZ3O {
+  background-color: transparent;
+  height: 23px;
+  left: 47px;
+  position: absolute;
+  top: 27px;
+  width: 3px;
+}
+.desktop-1 .vector-rid7ID {
+  background-color: transparent;
+  height: 30px;
+  left: 18px;
+  position: absolute;
+  top: 39px;
+  width: 34px;
+}
+.desktop-1 .vector-rofXM6 {
+  background-color: transparent;
+  height: 3px;
+  left: -1px;
+  position: absolute;
+  top: 7px;
+  width: 19px;
+}
+.desktop-1 .vector-so7fDz {
+  background-color: transparent;
+  height: 13px;
+  left: 377px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 293px;
+  width: 9px;
+}
+.desktop-1 .vector-tGh90e {
+  background-color: transparent;
+  height: 6px;
+  left: 438px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 245px;
+  width: 4px;
+}
+.desktop-1 .vector-tj2CD4 {
+  background-color: transparent;
+  height: 11px;
+  left: 103px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 338px;
+  width: 15px;
+}
+.desktop-1 .vector-tpzixh {
+  background-color: transparent;
+  height: 17px;
+  left: 428px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 102px;
+  width: 61px;
+}
+.desktop-1 .vector-u30GM7 {
+  background-color: transparent;
+  height: 14px;
+  left: 39px;
+  position: absolute;
+  top: 11px;
+  width: 13px;
+}
+.desktop-1 .vector-uFJKB2 {
+  background-color: transparent;
+  height: 9px;
+  left: 316px;
+  position: absolute;
+  top: 52px;
+  width: 16px;
+}
+.desktop-1 .vector-uY3C5g {
+  background-color: transparent;
+  height: 8px;
+  left: 48px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 257px;
+  width: 31px;
+}
+.desktop-1 .vector-uxhlCU {
+  background-color: transparent;
+  height: 9px;
+  left: 173px;
+  position: absolute;
+  top: 72px;
+  width: 9px;
+}
+.desktop-1 .vector-vbhhGe {
+  background-color: transparent;
+  height: 4px;
+  left: 19px;
+  position: absolute;
+  top: 55px;
+  width: 46px;
+}
+.desktop-1 .vector-vcjMfO {
+  background-color: transparent;
+  height: 7px;
+  left: 27px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 182px;
+  width: 7px;
+}
+.desktop-1 .vector-vf5h2S {
+  background-color: transparent;
+  height: 39px;
+  left: 64px;
+  position: absolute;
+  top: 59px;
+  width: 40px;
+}
+.desktop-1 .vector-vlLdna {
+  background-color: transparent;
+  height: 18px;
+  left: 115px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 231px;
+  width: 18px;
+}
+.desktop-1 .vector-wUc4xS {
+  background-color: transparent;
+  height: 16px;
+  left: 18px;
+  position: absolute;
+  top: 16px;
+  width: 15px;
+}
+.desktop-1 .vector-wZzfLJ {
+  background-color: transparent;
+  height: 28px;
+  left: 53px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 205px;
+  width: 29px;
+}
+.desktop-1 .vector-xIu1gx {
+  background-color: transparent;
+  height: 17px;
+  left: 402px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 223px;
+  width: 17px;
+}
+.desktop-1 .vector-xeBZae {
+  background-color: transparent;
+  height: 22px;
+  left: -0px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 173px;
+  width: 136px;
+}
+.desktop-1 .vector-xfqRct {
+  background-color: transparent;
+  height: 21px;
+  left: 17px;
+  position: absolute;
+  top: 24px;
+  width: 24px;
+}
+.desktop-1 .vector-xqgSJE {
+  background-color: transparent;
+  height: 41px;
+  left: 123px;
+  position: absolute;
+  top: 239px;
+  width: 44px;
+}
+.desktop-1 .vector-xwCvz9 {
+  background-color: transparent;
+  height: 18px;
+  left: 3px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 147px;
+  width: 15px;
+}
+.desktop-1 .vector-xxtMwp {
+  background-color: transparent;
+  height: 80px;
+  left: -0px;
+  position: absolute;
+  top: -0px;
+  width: 70px;
+}
+.desktop-1 .vector-yV8SjA {
+  background-color: transparent;
+  height: 46px;
+  left: 74px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 14px;
+  width: 37px;
+}
+.desktop-1 .vector-yWVBma {
+  background-color: transparent;
+  height: 32px;
+  left: 24px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 58px;
+  width: 55px;
+}
+.desktop-1 .vector-zKH7cs {
+  background-color: transparent;
+  height: 42px;
+  left: 74px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 61px;
+  width: 37px;
+}
+.desktop-1 .vector-zMxwd8 {
+  background-color: transparent;
+  height: 10px;
+  left: 33px;
+  position: absolute;
+  top: 234px;
+  width: 9px;
+}
+.desktop-1 .vector-zpOZdx {
+  background-color: transparent;
+  height: 3px;
+  left: 393px;
+  position: absolute;
+  top: 84px;
+  width: 133px;
+}
+.desktop-1 .video-conferencing-apps-C61RwL {
+  background-color: transparent;
+  height: auto;
+  left: 938px;
+  letter-spacing: 0.00px;
+  line-height: normal;
+  mix-blend-mode: normal;
+  position: absolute;
+  text-align: justify;
+  top: 5593px;
+  width: 184px;
+}
+.desktop-1 .we-build-integr-in-one-solution-C61RwL {
+  background-color: transparent;
+  height: auto;
+  left: 142px;
+  letter-spacing: 0.00px;
+  line-height: normal;
+  mix-blend-mode: normal;
+  position: absolute;
+  text-align: center;
+  top: 6668px;
+  width: 302px;
+}
+.desktop-1 .we-have-designe-booking-process-C61RwL {
+  background-color: transparent;
+  color: var(--gray);
+  font-family: var(--font-family-roboto);
+  font-size: var(--font-size-xxxl);
+  font-style: normal;
+  font-weight: 500;
+  height: auto;
+  left: 149px;
+  letter-spacing: 0.00px;
+  line-height: normal;
+  mix-blend-mode: normal;
+  position: absolute;
+  text-align: justify;
+  top: 6317px;
+  width: auto;
+}
+.desktop-1 .we-offer-custom-our-brand-image-C61RwL {
+  background-color: transparent;
+  height: auto;
+  left: 448px;
+  letter-spacing: 0.00px;
+  line-height: normal;
+  mix-blend-mode: normal;
+  position: absolute;
+  text-align: center;
+  top: 6668px;
+  width: auto;
+}
+.desktop-1 .we-take-custome-d-data-security-C61RwL {
+  background-color: transparent;
+  height: auto;
+  left: 892px;
+  letter-spacing: 0.00px;
+  line-height: 23px;
+  mix-blend-mode: normal;
+  position: absolute;
+  text-align: justify;
+  top: 8805px;
+  width: auto;
+}
+.desktop-1 .wellness-scheduling-app-1-C61RwL {
+  background-color: transparent;
+  height: 97px;
+  left: 1033px;
+  mix-blend-mode: normal;
+  overflow: hidden;
+  position: absolute;
+  top: 4838px;
+  width: 94px;
+}
+.desktop-1 .with-a-quick-on-e-of-everything-C61RwL {
+  background-color: transparent;
+  height: auto;
+  left: 264px;
+  letter-spacing: 0.00px;
+  line-height: 23px;
+  mix-blend-mode: normal;
+  position: absolute;
+  text-align: justify;
+  top: 8803px;
+  width: auto;
+}
+.desktop-1 .x1-1-C61RwL {
+  background-color: transparent;
+  height: 58px;
+  left: 127px;
+  mix-blend-mode: normal;
+  object-fit: cover;
+  position: absolute;
+  top: 16px;
+  width: 207px;
+}
+.desktop-1 .x23000-educators-ointy-worldwide-C61RwL {
+  background-color: transparent;
+  height: auto;
+  left: 204px;
+  letter-spacing: 0.00px;
+  line-height: normal;
+  mix-blend-mode: normal;
+  position: absolute;
+  text-align: justify;
+  top: 7108px;
+  width: auto;
+}
+.desktop-1 .x24x7-online-sch-r-double-booked-C61RwL {
+  background-color: transparent;
+  color: var(--black);
+  font-family: var(--font-family-roboto);
+  font-size: var(--font-size-m);
+  font-style: normal;
+  font-weight: 700;
+  height: auto;
+  left: 772px;
+  letter-spacing: 0.00px;
+  line-height: 28px;
+  mix-blend-mode: normal;
+  position: absolute;
+  text-align: justify;
+  top: 3071px;
+  width: 553px;
+}
+.desktop-1 .your-peace-of-m-ur-top-priority-C61RwL {
+  background-color: transparent;
+  height: auto;
+  left: 374px;
+  letter-spacing: 0.00px;
+  line-height: normal;
+  mix-blend-mode: normal;
+  position: absolute;
+  text-align: justify;
+  top: 8250px;
+  width: 694px;
+}
+</style><meta name="author" content="AnimaApp.com - Design to code, Automated."></head><body style="margin: 0;background: #ffffff;"><input type="hidden" id="anPageName" name="page" value="desktop-1"><div class="container-center-horizontal"><div class="desktop-1 screen " data-id="2:0"><img class="footer-element-1536x254-1-C61RwL" data-id="16:61" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/footer-element-1536x254-1@1x.png"><div class="rectangle-1-C61RwL" data-id="3:0"></div><div class="home-C61RwL roboto-normal-mountain-mist-18px" data-id="3:3">Home</div><div class="customers-C61RwL roboto-normal-mountain-mist-18px" data-id="3:4">Customers</div><div class="contact-us-C61RwL roboto-normal-mountain-mist-18px" data-id="3:5">Contact Us</div><div class="enterprise-C61RwL roboto-normal-mountain-mist-18px" data-id="3:6">Enterprise</div><div class="pricing-C61RwL roboto-normal-mountain-mist-18px" data-id="3:7">Pricing</div><div class="login-C61RwL roboto-normal-mountain-mist-18px" data-id="3:8">Login</div><img class="rectangle-2-C61RwL" data-id="5:0" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/rectangle-2@2x.svg"><img class="rectangle-3-C61RwL" data-id="5:12" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/rectangle-3@2x.svg"><img class="rectangle-19-C61RwL" data-id="16:52" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/rectangle-19@2x.svg"><div class="get-started-now-C61RwL" data-id="5:13">Get started now!</div><div class="sign-up-now-C61RwL" data-id="16:53">Sign up now!</div><div class="sign-up-C61RwL" data-id="5:1">Sign Up</div><div class="educating-sched-better-results-C61RwL" data-id="5:6">Educating scheduling software<br>to reduce admin work, increase <br>efficiency, and deliver better results</div><div class="save-valuable-t-eb-conferencing-C61RwL" data-id="5:7">Save valuable&nbsp;&nbsp;teaching time with online appointments, class<br>scheduling, student management, payments, automated reminders and web conferencing!</div><div class="no-credit-card-is-free-forever-C61RwL" data-id="5:14">No credit card required! Our free plan is free forever.</div><h1 class="title-C61RwL" data-id="5:15">academic institutions</h1><div class="appointy-can-he-d-group-classes-C61RwL roboto-normal-gray-18px" data-id="5:16">Appointy can help businesses and institutions in the education, advising and non-profit domain schedule 1:1<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sessions and round robin meetings, and group classes</div><div class="universities-and-colleges-C61RwL" data-id="5:106"><img class="vector-a3vFub" data-id="5:107" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/vector-1@2x.svg"><img class="vector-yWVBma" data-id="5:108" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/vector-2@2x.svg"><img class="vector-0b6qq8" data-id="5:109" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/vector-3@2x.svg"><img class="vector-JMEXys" data-id="5:110" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/vector-4@2x.svg"><img class="vector-8UVACp" data-id="5:111" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/vector-5@2x.svg"><img class="vector-BE2FAr" data-id="5:112" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/vector-6@2x.svg"></div><img class="schools-1-C61RwL" data-id="5:17" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/schools-1@2x.svg"><div class="professors-teachers-C61RwL" data-id="5:252"><img class="vector-iGfu7a" data-id="5:253" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/vector-7@2x.svg"><img class="vector-dpwBHc" data-id="5:254" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/vector-8@2x.svg"><img class="vector-Nx8ALI" data-id="5:255" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/vector-9@2x.svg"><img class="vector-vbhhGe" data-id="5:256" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/vector-10@2x.svg"><img class="vector-IfP9gu" data-id="5:257" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/vector-11@2x.svg"><img class="vector-ZaZ8nt" data-id="5:258" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/vector-12@2x.svg"><img class="vector-ZfOuxy" data-id="5:259" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/vector-13@2x.svg"><img class="vector-3lXS0v" data-id="5:260" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/vector-14@2x.svg"><img class="vector-6yoxxx" data-id="5:261" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/vector-15@2x.svg"></div><div class="libraries-C61RwL" data-id="5:292"><img class="group-kxbi2D" data-id="5:293" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/group@2x.svg"></div><div class="schools-C61RwL roboto-medium-black-20px" data-id="5:716"><span class="span0-SiSCvI roboto-medium-black-20px">Schools<br></span><span class="span1-SiSCvI roboto-normal-black-18px"><br></span></div><div class="calender-schedular-C61RwL roboto-medium-black-18px" data-id="14:53">Calender Schedular</div><div class="tutors-C61RwL roboto-medium-black-20px" data-id="5:725">Tutors</div><div class="staff-management-C61RwL roboto-medium-black-20px" data-id="14:54">Staff Management</div><div class="third-party-integrations-C61RwL roboto-medium-black-20px" data-id="14:125">Third-Party Integrations</div><div class="student-services-C61RwL roboto-medium-black-20px" data-id="5:727">Student Services</div><div class="online-prepayments-C61RwL roboto-medium-black-20px" data-id="14:55">Online Prepayments</div><div class="end-to-end-branding-C61RwL roboto-medium-black-20px" data-id="14:126">End-to-End Branding</div><div class="test-centers-C61RwL roboto-medium-black-20px" data-id="5:729"><span class="span0-Txbmgs roboto-medium-black-20px">Test Centers<br></span><span class="span1-Txbmgs roboto-normal-black-18px"><br></span></div><div class="reporting-analytics-C61RwL roboto-medium-black-20px" data-id="14:56">Reporting &amp; Analytics</div><div class="custom-workflows-C61RwL roboto-medium-black-20px" data-id="14:127">Custom Workflows</div><div class="educational-events-C61RwL roboto-medium-black-20px" data-id="5:731">Educational Events</div><div class="scheduling-mobile-app-C61RwL roboto-medium-black-20px" data-id="14:57">Scheduling Mobile App</div><div class="dedicated-support-C61RwL roboto-medium-black-20px" data-id="14:128">Dedicated Support</div><div class="schools-can-mak-counseling-etc-C61RwL roboto-normal-gray-18px" data-id="5:721">Schools can make class time <br>tables, schedule resources, <br>organize staff &amp; parent meetings, carrer counseling etc.</div><p class="see-your-entire-r-double-booked-C61RwL roboto-normal-gray-15px" data-id="14:58">See your entire schedule at a glance with Appointy’s easy-to-use calender with color-coded tiles for teachers and sessions. Sync schedule with your personal or professional calenders so that you’re never double booked</p><div class="tutors-can-sche-udents-and-more-C61RwL roboto-normal-gray-18px" data-id="5:726">Tutors can schedule in-person or online classes, market their business, manage students and more</div><div class="we-build-integr-in-one-solution-C61RwL roboto-normal-gray-18px" data-id="14:129">We build integrations with core<br>systems that you work with every<br>day to give you an all-in-one solution</div><div class="students-can-sc-tudent-services-C61RwL roboto-normal-gray-18px" data-id="5:728">Students can schedule on <br>campus tech support, repair<br>works, admin enquiries etc. with student services</div><div class="test-centers-ca-slots-and-more-C61RwL roboto-normal-gray-18px" data-id="5:730">Test centers can schedule seats, computers, test taking time-slots and more</div><div class="our-solution-ca-of-your-company-C61RwL roboto-normal-gray-18px" data-id="14:131">Our solution can be customized to<br>cater to any specific scheduling<br>needs of your company</div><div class="institutions-ca-conferences-etc-C61RwL roboto-normal-gray-18px" data-id="5:732">Institutions can let attendees reserve a seat for science fairs, art exhibitions, seminars,&nbsp;&nbsp;<br>webinars, conferences etc.</div><div class="our-support-tea-roubleshoot-etc-C61RwL roboto-normal-gray-18px" data-id="14:132">Our support team will help on board<br>and train your team, implement new<br>features, troubleshoot, etc.</div><div class="universities-colleges-C61RwL roboto-medium-black-20px" data-id="5:717"><span class="span0-hxdJWG roboto-medium-black-20px">Universities &amp; Colleges<br></span><span class="span1-hxdJWG roboto-normal-black-18px"><br></span></div><div class="class-reminders-C61RwL roboto-medium-black-18px" data-id="14:63">Class Reminders</div><div class="professors-teachers-VMr6Om roboto-medium-black-20px" data-id="5:718"><span class="span0-EN3b6x roboto-medium-black-20px">Professors &amp; Teachers<br></span><span class="span1-EN3b6x roboto-normal-black-18px"><br></span></div><div class="resource-scheduling-C61RwL roboto-medium-black-20px" data-id="14:64"><span class="span0-mOHdC1 roboto-medium-black-20px">Resource Scheduling<br></span><span class="span1-mOHdC1 roboto-medium-black-18px"><br></span></div><div class="professors-can-toring-and-more-C61RwL roboto-normal-gray-18px" data-id="5:722">Professors can let students book 1:1 classes, doubt clearing sessions, after school activities,project mentoring and more</div><p class="reserve-equipme-ating-resources-C61RwL roboto-normal-gray-15px" data-id="14:65">Reserve equipments, lab rooms,<br>sports fields, conference halls,<br> etc. automatically when a<br>session is booked. Save time and<br>reduce operational costs that<br>come with manually allocating<br> resources</p><div class="libraries-VMr6Om roboto-medium-black-20px" data-id="5:719">Libraries</div><div class="booking-automation-C61RwL roboto-medium-black-20px" data-id="14:66">Booking Automation</div><div class="public-school-o-ading-slots-etc-C61RwL roboto-normal-gray-20px" data-id="5:723">Public, school or university <br>libraries can manage booking of study rooms, computer system, hourly reading slots etc.</div><p class="limit-number-of-ession-and-more-C61RwL roboto-normal-gray-15px" data-id="14:67">Limit number of meetings and<br> classes you can take in a<br>day/week so that you are not<br>overloaded. Choose how much in<br>advance anyone can book/cancel,<br>set maximum capacity for a class<br>or session, and more</p><div class="institutions-ca-ourses-and-more-C61RwL roboto-normal-gray-18px" data-id="5:720">Institutions can schedule <br>academic counselling, advising sessions, applicant interviews, campus tours, courses and more.</div><p class="send-automated-ation-links-etc-C61RwL roboto-normal-gray-15px" data-id="14:68">Send automated email and text<br>reminder notifications to<br>students prior ses<br>meeting or a class to ensure that<br>they don&#39;t miss it. Customize<br>them to add info like room<br>number, location Links, etc.</p><div class="tutors-VMr6Om" data-id="5:70"><img class="group-kdqPpG" data-id="5:71" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/group-1@2x.svg"></div><div class="student-services-1-C61RwL" data-id="5:44"><div class="group-xUjp0B" data-id="5:45"><img class="vector-nGTrif" data-id="5:46" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/vector-1@2x.svg"><img class="vector-lRY5Mv" data-id="5:47" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/vector-17@2x.svg"><img class="vector-ZAJBJh" data-id="5:48" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/vector-18@2x.svg"><img class="vector-TZUrxk" data-id="5:49" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/vector-19@2x.svg"><img class="vector-dhuHLe" data-id="5:50" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/vector-20@2x.svg"></div></div><img class="test-centers-VMr6Om" data-id="5:95" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/test-centers@2x.svg"><img class="educational-events-VMr6Om" data-id="5:562" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/educational-events@2x.svg"><div class="try-appointys-e-ree-account-now-C61RwL" data-id="16:51">Try Appointy&#39;s education scheduling software. Get your free account now!</div><div class="rectangle-4-C61RwL" data-id="5:735"></div><div class="connect-with-students-C61RwL" data-id="5:575"><img class="vector-hNs49W" data-id="5:576" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/vector-21@2x.svg"><img class="vector-56x9B8" data-id="5:577" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/vector-22@2x.svg"><img class="vector-g2ZK3U" data-id="5:578" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/vector-23@2x.svg"><img class="vector-puL3PG" data-id="5:579" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/vector-24@2x.svg"><img class="vector-k6GkWM" data-id="5:580" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/vector-25@2x.svg"><img class="vector-3vTEqN" data-id="5:581" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/vector-26@2x.svg"></div><div class="admission-offic-ll-new-students-C61RwL roboto-normal-gray-20px" data-id="5:737">Admission offices can make their<br>services easily accessible and enroll new students</div><div class="avoid-any-coodi-lasses-with-you-C61RwL roboto-normal-gray-20px" data-id="5:739">Avoid any coodination hassles and let students easily schedule <br>appointments &amp; classes with you</div><div class="store-important-essions-classes-C61RwL roboto-normal-gray-20px" data-id="5:741">Store important student details that you can use to plan out your advising sessions &amp; classes</div><div class="booking-convenience-C61RwL" data-id="5:632"><img class="vector-GODHJ6" data-id="5:633" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/vector-27@2x.svg"><img class="vector-SFrmBm" data-id="5:634" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/vector-28@2x.svg"><img class="vector-PnNpRx" data-id="5:635" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/vector-29@2x.svg"><img class="vector-1rYzk8" data-id="5:636" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/vector-30@2x.svg"><img class="vector-bYIZvV" data-id="5:637" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/vector-30@2x.svg"><img class="vector-VMu6LW" data-id="5:638" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/vector-32@2x.svg"><img class="vector-IsF7rP" data-id="5:639" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/vector-33@2x.svg"></div><img class="better-student-experience-C61RwL" data-id="5:615" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/better-student-experience@2x.svg"><div class="make-it-easier-vising-sessions-C61RwL roboto-bold-black-17px" data-id="7:0">Make it easier for students to find and book 1:1 carrer counselling<br>and academic advising sessions</div><div class="personalise-ses-nd-satisfaction-C61RwL roboto-bold-black-17px" data-id="7:28">Personalise sessions based on student’s needs and elevate their <br>experience and satisfaction</div><p class="branded-online-staff-for-them-C61RwL roboto-medium-black-15px" data-id="7:1"><span class="span0-Tj0Gfs roboto-medium-black-15px">Branded online booking system:</span><span class="span1-Tj0Gfs roboto-normal-black-15px"> Create a professional, multi-lingual booking website for your university or institute. Customize it to match your brand- add a logo service, services or classes you offer, staff portfolios, campus maps etc. to&nbsp;&nbsp;ensure that applicants can schedule with the right staff for them.</span></p><p class="dedicated-stude-rents-regularly-C61RwL roboto-medium-black-15px" data-id="7:29"><span class="span0-PfoRlr roboto-medium-black-15px">Dedicated student profile:</span><span class="span1-PfoRlr roboto-normal-black-15px"> Collect important student information like contact details, classes attended, payments etc. under student profiles. Use notes to make quick remarks about weak subjects, carrer analysis, etc. to communicate progress reports to parents regularly.</span></p><p class="multi-channek-b-ite-integration-C61RwL roboto-medium-black-15px" data-id="7:11"><span class="span0-JOASrg roboto-medium-black-15px">Multi-channek booking:</span><span class="span1-JOASrg roboto-normal-black-15px"> Share your booking link with students in emails, texts, brochures, etc. or let them book campus tours and interviews directly from your website with Appointy’s website integration.</span></p><p class="intake-forms-co-re-your-session-C61RwL roboto-medium-black-15px" data-id="7:30"><span class="span0-E5hn4m roboto-medium-black-15px">Intake forms:</span><span class="span1-E5hn4m roboto-normal-black-15px"> Collect crucial info at the time of enrollment using our intake forms to prepare better lesson plans and consultation notes before your session.</span></p><p class="add-a-book-now-call-instantly-C61RwL roboto-normal-black-15px" data-id="7:12">Add a ‘book now’ button your intitute’s Facebook and Instagram profiles to<br>connect with new students and give them an option to book an admission <br>assistance call instantly.</p><p class="online-reputati-th-just-a-click-C61RwL roboto-medium-black-15px" data-id="7:31"><span class="span0-gBxL91 roboto-medium-black-15px">Online Reputation Management: </span><span class="span1-gBxL91 roboto-normal-black-15px">Automatically request reviews from happy parents and students aftee a session. Promote these positive reviews on your social media and display them on your booking page with just a click.</span></p><div class="instagram-profi-arious-subjects-C61RwL" data-id="5:330"><img class="group-cgAFwg" data-id="5:331" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/group-2@2x.svg"><img class="group-XPgmFW" data-id="5:391" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/group-3@2x.svg"><img class="vector-cgAFwg" data-id="5:393" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/vector-34@2x.svg"><img class="vector-XPgmFW" data-id="5:394" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/vector-35@2x.svg"><img class="vector-duuGUj" data-id="5:395" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/vector-36@2x.svg"><img class="vector-D9vIxh" data-id="5:396" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/vector-37@2x.svg"><img class="vector-bqaz0m" data-id="5:397" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/vector-38@2x.svg"><img class="vector-RfxqmV" data-id="5:398" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/vector-39@2x.svg"><img class="vector-3AMgjh" data-id="5:399" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/vector-40@2x.svg"><img class="vector-GnrhNu" data-id="5:400" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/vector-41@2x.svg"><img class="vector-oM358b" data-id="5:401" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/vector-42@2x.svg"><img class="vector-XFweGa" data-id="5:402" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/vector-43@2x.svg"><img class="vector-ZmI49U" data-id="5:403" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/vector-44@2x.svg"><img class="vector-98wRzj" data-id="5:404" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/vector-45@2x.svg"><div class="group-duuGUj" data-id="5:405"><img class="vector-9ca116" data-id="5:406" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/vector-54@2x.svg"><img class="vector-lU878o" data-id="5:407" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/vector-55@2x.svg"><img class="vector-Iw22i4" data-id="5:408" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/vector-56@2x.svg"><img class="vector-ZDV3Au" data-id="5:409" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/vector-57@2x.svg"><img class="vector-yV8SjA" data-id="5:410" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/vector-58@2x.svg"><img class="vector-zKH7cs" data-id="5:411" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/vector-59@2x.svg"></div><img class="group-D9vIxh" data-id="5:412" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/group-4@2x.svg"><img class="vector-6bVGVH" data-id="5:421" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/vector-46@2x.svg"><img class="vector-WExKi2" data-id="5:422" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/vector-47@2x.svg"><img class="vector-D8bfa3" data-id="5:423" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/vector-48@2x.svg"><img class="vector-eEK94r" data-id="5:424" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/vector-49@2x.svg"><img class="vector-bfxJ98" data-id="5:425" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/vector-50@2x.svg"><img class="vector-xwCvz9" data-id="5:426" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/vector-51@2x.svg"><img class="vector-aXw8Iq" data-id="5:427" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/vector-52@2x.svg"><img class="vector-IEG1p5" data-id="5:428" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/vector-53@2x.svg"></div><div class="eliminate-the-s-r-they-need-you-C61RwL roboto-bold-black-17px" data-id="7:24">Eliminate the scheduling back and forth to empower students to<br>reach put whenever they need you</div><div class="appointment-con-eeting-window-1-C61RwL" data-id="5:642"><img class="group-zpOZdx" data-id="5:643" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/group-5@2x.svg"><img class="group-PiL9yv" data-id="5:680" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/group-6@2x.svg"><img class="vector-zpOZdx" data-id="5:682" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/vector-60@2x.svg"><img class="vector-PiL9yv" data-id="5:683" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/vector-61@2x.svg"><img class="vector-3PZDGn" data-id="5:684" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/vector-62@2x.svg"><img class="vector-oyPScF" data-id="5:685" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/vector-63@2x.svg"><img class="vector-tpzixh" data-id="5:686" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/vector-64@2x.svg"><div class="group-3PZDGn" data-id="5:687"><img class="vector-mCcQNR" data-id="5:688" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/vector-70@2x.svg"><img class="vector-eaQd9n" data-id="5:689" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/vector-71@2x.svg"><img class="vector-rofXM6" data-id="5:690" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/vector-72@2x.svg"><img class="vector-abDJSg" data-id="5:691" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/vector-73@2x.svg"><img class="vector-ARfsxl" data-id="5:692" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/vector-74@2x.svg"></div><img class="group-oyPScF" data-id="5:693" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/group-7@2x.svg"><img class="vector-9aAxNS" data-id="5:695" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/vector-65@2x.svg"><img class="vector-7Bt2ZY" data-id="5:696" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/vector-66@2x.svg"><div class="group-tpzixh" data-id="5:697"><img class="vector-WuuR3I" data-id="5:698" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/vector-75@2x.svg"><img class="vector-MtcixW" data-id="5:699" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/vector-76@2x.svg"><img class="vector-kRwasT" data-id="5:700" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/vector-77@2x.svg"><img class="vector-RGOT49" data-id="5:701" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/vector-78@2x.svg"></div><img class="vector-tj2CD4" data-id="5:702" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/vector-67@2x.svg"><img class="vector-TxqElB" data-id="5:703" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/vector-68@2x.svg"><img class="vector-GxxHYH" data-id="5:704" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/vector-69@2x.svg"></div><p class="intelligent-tim-th-just-a-clicl-C61RwL roboto-medium-black-15px" data-id="7:27"><span class="span0-ZgKxOn roboto-medium-black-15px">Intelligent timezone detection:</span><span class="span1-ZgKxOn roboto-normal-black-15px"> Offer students to schedule virtual course, classes and admission councelling with Appointy’s Zoom integration. Automatically send a Zoom meeting or class link in scheduling notifications so that students can join your virtual classroom with just a clicl!</span></p><p class="x24x7-online-sch-r-double-booked-C61RwL" data-id="7:25"><span class="span0-BCCAj3 ">24x7 online scheduling:</span><span class="span1-BCCAj3 roboto-normal-black-15px"> Students can easily find a time that works for them and book a session and sign up for recurring classes on their own. Confirmed appointments are added to your calender so that you’re never double booked.</span></p><p class="intelligent-tim-their-time-zone-C61RwL roboto-medium-black-15px" data-id="7:26"><span class="span0-ePsuJx roboto-medium-black-15px">Intelligent timezone detection:</span><span class="span1-ePsuJx roboto-normal-black-15px"> Help students &amp; applicants around the globe and ensure that everyone who wants to schedule with you can view your availability in their time zone.</span></p><div class="portal-with-student-database-C61RwL" data-id="5:153"><img class="group-YLSUqx" data-id="5:154" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/group-8@2x.svg"><img class="group-uY3C5g" data-id="5:230" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/group-9@2x.svg"><img class="vector-YLSUqx" data-id="5:232" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/vector-79@2x.svg"><img class="vector-uY3C5g" data-id="5:233" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/vector-80@2x.svg"><img class="vector-h6sHkQ" data-id="5:234" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/vector-81@2x.svg"><img class="vector-zMxwd8" data-id="5:235" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/vector-82@2x.svg"><img class="vector-i2ltDN" data-id="5:236" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/vector-83@2x.svg"><img class="vector-TAwS12" data-id="5:237" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/vector-84@2x.svg"><img class="vector-cbDvSl" data-id="5:238" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/vector-85@2x.svg"><img class="vector-leFX8j" data-id="5:239" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/vector-86@2x.svg"><img class="vector-S8peIn" data-id="5:240" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/vector-87@2x.svg"><img class="group-h6sHkQ" data-id="5:241" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/group-10@2x.svg"><img class="vector-fbmlSd" data-id="5:243" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/vector-88@2x.svg"><img class="vector-Tl4bYv" data-id="5:244" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/vector-89@2x.svg"><img class="vector-Zo1KEj" data-id="5:245" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/vector-90@2x.svg"><img class="vector-lbxRCI" data-id="5:246" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/vector-91@2x.svg"><img class="vector-so7fDz" data-id="5:247" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/vector-92@2x.svg"><img class="vector-n4ZVdO" data-id="5:248" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/vector-93@2x.svg"><img class="vector-MOjPqg" data-id="5:249" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/vector-94@2x.svg"><img class="vector-FctBMH" data-id="5:250" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/vector-95@2x.svg"><img class="vector-ZWubNv" data-id="5:251" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/vector-96@2x.svg"></div><img class="calendar-scheduler-2-C61RwL" data-id="5:589" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/calendar-scheduler-2@2x.svg"><div class="class-reminders-VMr6Om" data-id="5:623"><img class="vector-QQFZbc" data-id="5:624" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/vector-97@2x.svg"><img class="vector-5PuQYL" data-id="5:625" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/vector-98@2x.svg"><img class="vector-aSn0AA" data-id="5:626" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/vector-99@2x.svg"><img class="vector-FfwuR2" data-id="5:627" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/vector-100@2x.svg"><img class="vector-S6aIfp" data-id="5:628" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/vector-101@2x.svg"><img class="vector-Fz9JTu" data-id="5:629" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/vector-102@2x.svg"><img class="vector-aAWzHX" data-id="5:630" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/vector-103@2x.svg"><img class="vector-R4LxSW" data-id="5:631" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/vector-104@2x.svg"></div><img class="resource-scheduling-1-C61RwL" data-id="5:142" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/resource-scheduling-1@2x.svg"><div class="booking-settings-1-C61RwL" data-id="5:606"><img class="vector-Y1SOF5" data-id="5:607" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/vector-105@2x.svg"><img class="vector-CldKVZ" data-id="5:608" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/vector-106@2x.svg"><img class="vector-Svr90z" data-id="5:609" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/vector-107@2x.svg"><img class="vector-16CB1J" data-id="5:610" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/vector-108@2x.svg"><img class="vector-hDpXBV" data-id="5:611" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/vector-109@2x.svg"><img class="vector-6H6kyB" data-id="5:612" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/vector-110@2x.svg"><img class="vector-8Ooxiw" data-id="5:613" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/vector-111@2x.svg"><img class="vector-vf5h2S" data-id="5:614" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/vector-112@2x.svg"></div><img class="team-management-1-C61RwL" data-id="5:83" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/team-management-1@2x.svg"><img class="online-prepayments-10-C61RwL" data-id="5:279" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/online-prepayments-10@2x.svg"><img class="reporting-and-analytics-20-C61RwL" data-id="5:131" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/reporting-and-analytics-20@2x.svg"><div class="wellness-scheduling-app-1-C61RwL" data-id="5:113"><img class="vector-m6UJYn" data-id="5:114" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/vector-113@2x.svg"><img class="vector-lwTcAv" data-id="5:115" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/vector-114@2x.svg"><img class="vector-CkXCpu" data-id="5:116" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/vector-115@2x.svg"><img class="vector-VTxh6x" data-id="5:117" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/vector-116@2x.svg"><img class="vector-YrP2VV" data-id="5:118" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/vector-117@2x.svg"><img class="vector-dilT5x" data-id="5:119" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/vector-118@2x.svg"></div><div class="rectangle-5-C61RwL" data-id="14:115"></div><div class="rectangle-6-C61RwL" data-id="14:117"></div><div class="rectangle-7-C61RwL" data-id="14:119"></div><div class="multiple-payment-apps-C61RwL roboto-medium-chicago-15px" data-id="14:116">Multiple Payment Apps</div><div class="personal-work-calender-C61RwL roboto-medium-chicago-15px" data-id="14:118">Personal &amp; Work Calender</div><div class="video-conferencing-apps-C61RwL roboto-medium-chicago-15px" data-id="14:120">Video Conferencing Apps</div><img class="appointy-integr-tion-1024x125-1-C61RwL" data-id="14:122" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/appointy-integrations-with-different-apps-education-1024x125-1@1x.png"><div class="third-party-integration-C61RwL" data-id="5:65"><img class="vector-97dItL" data-id="5:66" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/vector-119@2x.svg"><img class="vector-rid7ID" data-id="5:67" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/vector-120@2x.svg"><img class="vector-b9GPNm" data-id="5:68" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/vector-121@2x.svg"><img class="vector-DISSju" data-id="5:69" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/vector-122@2x.svg"></div><div class="end-to-end-branding-VMr6Om" data-id="5:530"><img class="vector-Xr98dW" data-id="5:531" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/vector-123@2x.svg"><img class="vector-xfqRct" data-id="5:532" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/vector-124@2x.svg"><img class="vector-2zNQFr" data-id="5:533" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/vector-125@2x.svg"><img class="vector-eHpc5w" data-id="5:534" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/vector-126@2x.svg"><img class="vector-66B93Z" data-id="5:535" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/vector-127@2x.svg"></div><div class="custom-workflows-VMr6Om" data-id="5:545"><img class="vector-KHaHdj" data-id="5:546" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/vector-128@2x.svg"><img class="vector-UDoxUZ" data-id="5:547" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/vector-129@2x.svg"><img class="vector-jwNNqf" data-id="5:548" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/vector-130@2x.svg"><img class="vector-M9GIJx" data-id="5:549" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/vector-131@2x.svg"><img class="vector-7Alblq" data-id="5:550" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0972a4a5b8cd6aa2faf6f/img/vector@2x.png"><img class="vector-rNDZ3O" data-id="5:551" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/vector-133@2x.svg"><img class="vector-GdVUhP" data-id="5:552" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/vector-134@2x.svg"><img class="vector-olX9ej" data-id="5:553" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/vector-135@2x.svg"></div><div class="dedicated-support-team-C61RwL" data-id="5:554"><img class="vector-XnBOyS" data-id="5:555" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/vector-136@2x.svg"><img class="vector-1CFdjK" data-id="5:556" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/vector-137@2x.svg"><img class="vector-0xxlY5" data-id="5:557" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/vector-138@2x.svg"><img class="vector-60jan1" data-id="5:558" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/vector-139@2x.svg"><img class="vector-CdShXH" data-id="5:559" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/vector-140@2x.svg"><img class="vector-JTxx50" data-id="5:560" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/vector-141@2x.svg"><img class="vector-GU4x7Z" data-id="5:561" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/vector-142@2x.svg"></div><img class="rectangle-8-C61RwL" data-id="14:133" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/rectangle-8@2x.svg"><div class="learn-more-C61RwL" data-id="14:134">Learn More</div><div class="rectangle-9-C61RwL" data-id="16:3"></div><div class="rectangle-12-C61RwL" data-id="16:8"></div><div class="path-19-1-C61RwL" data-id="5:262"><img class="vector-SxXSZT" data-id="5:263" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/vector-143@2x.svg"></div><div class="rectangle-11-C61RwL" data-id="16:6"></div><div class="rectangle-13-C61RwL" data-id="16:10"></div><p class="owner-be-mo-aca-emic-consulting-C61RwL" data-id="16:7">- Owner, BeMo Academic Consulting</p><p class="chyntia-p-couns-tion-management-C61RwL" data-id="16:11">- Chyntia P., Counselor, Education Management</p><img class="artboard-1-copy-1-min-300x99-1-C61RwL" data-id="16:15" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/artboard-1-copy-1-min-300x99-1@2x.png"><img class="artboard-1-copy-1-min-300x100-1-C61RwL" data-id="16:17" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/artboard-1-copy-2-1-min-300x100-1@2x.png"><img class="apointy-g2-300x100-1-1-min-1-C61RwL" data-id="16:12" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/apointy-g2-300x100-1-1-min-1@2x.png"><div class="rectangle-14-C61RwL" data-id="16:18"></div><div class="rectangle-15-C61RwL" data-id="16:20"></div><div class="rectangle-17-C61RwL" data-id="16:27"></div><div class="rectangle-18-C61RwL" data-id="16:30"></div><div class="rectangle-16-C61RwL" data-id="16:24"></div><div class="your-peace-of-m-ur-top-priority-C61RwL roboto-bold-black-40px" data-id="16:19">Your peace of mind is our top priority!</div><div class="super-support-C61RwL roboto-medium-black-23px" data-id="16:22">Super Support</div><div class="free-setup-assi-easy-migration-C61RwL roboto-medium-black-23px" data-id="16:28">Free Setup Assistance &amp; Easy Migration</div><div class="security-C61RwL roboto-medium-black-23px" data-id="16:31">Security</div><div class="multi-location-management-C61RwL roboto-medium-black-23px" data-id="16:25">Multi-Location Management</div><img class="free-setup-assi-asy-migration-2-C61RwL" data-id="5:429" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/free-setup-assistance-and-easy-migration-2@2x.svg"><div class="super-support-20-1-C61RwL" data-id="5:58"><img class="vector-qAAhqs" data-id="5:59" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/vector-144@2x.svg"><img class="vector-9kVzRW" data-id="5:60" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/vector-145@2x.svg"><img class="vector-1cUadW" data-id="5:61" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/vector-146@2x.svg"><img class="vector-8xwNCy" data-id="5:62" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/vector-147@2x.svg"><img class="vector-6Qxulc" data-id="5:63" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/vector-148@2x.svg"><img class="vector-iNSey1" data-id="5:64" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/vector-149@2x.svg"></div><div class="security-20-1-C61RwL" data-id="5:39"><img class="vector-Yk46xN" data-id="5:40" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/vector-150@2x.svg"><img class="vector-xxtMwp" data-id="5:41" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/vector-151@2x.svg"><img class="vector-QzKJoT" data-id="5:42" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/vector-152@2x.svg"><img class="vector-exFwOz" data-id="5:43" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/vector-153@2x.svg"></div><div class="multi-location-management-2-C61RwL" data-id="5:308"><img class="vector-6CAGFi" data-id="5:309" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/vector-154@2x.svg"><img class="vector-2eqayG" data-id="5:310" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e90c4a5b8cd6aa2fb045/img/vector-155@2x.svg"><img class="vector-FdCsSN" data-id="5:311" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/vector-156@2x.svg"><img class="vector-u30GM7" data-id="5:312" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/vector-157@2x.svg"><img class="vector-TTV9D0" data-id="5:313" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/vector-158@2x.svg"><img class="vector-MA9v2O" data-id="5:314" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/vector-159@2x.svg"><img class="vector-wUc4xS" data-id="5:315" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/vector-160@2x.svg"></div><div class="happy-educator-duling-software-C61RwL" data-id="5:447"><img class="vector-kx7xAm" data-id="5:448" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0ae44ef81b78f4ef50f5b/img/vector-161@2x.svg"><img class="vector-97Ka6G" data-id="5:449" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0ae44ef81b78f4ef50f5b/img/vector-162@2x.svg"><img class="vector-PDrWvR" data-id="5:450" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0ae44ef81b78f4ef50f5b/img/vector-163@2x.svg"><img class="vector-Eyxbm7" data-id="5:451" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0ae44ef81b78f4ef50f5b/img/vector-164@2x.svg"><img class="vector-UNY1co" data-id="5:452" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0ae44ef81b78f4ef50f5b/img/vector-165@2x.svg"><img class="vector-4vgeED" data-id="5:453" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0ae44ef81b78f4ef50f5b/img/vector-166@2x.svg"><img class="vector-xeBZae" data-id="5:454" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0ae44ef81b78f4ef50f5b/img/vector-167@2x.svg"><img class="vector-oiKNHh" data-id="5:455" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0ae44ef81b78f4ef50f5b/img/vector-168@2x.svg"><img class="vector-wZzfLJ" data-id="5:456" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0ae44ef81b78f4ef50f5b/img/vector-169@2x.svg"><img class="vector-RHBaVS" data-id="5:457" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0ae44ef81b78f4ef50f5b/img/vector-170@2x.svg"><img class="group-kx7xAm" data-id="5:458" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0ae44ef81b78f4ef50f5b/img/group-11@2x.svg"><img class="vector-QjM2mr" data-id="5:460" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0ae44ef81b78f4ef50f5b/img/vector-171@2x.svg"><img class="vector-eScc4O" data-id="5:461" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0ae44ef81b78f4ef50f5b/img/vector-172@2x.svg"><img class="vector-IKEr8Q" data-id="5:462" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0ae44ef81b78f4ef50f5b/img/vector-173@2x.svg"><img class="vector-Kza69s" data-id="5:463" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0ae44ef81b78f4ef50f5b/img/vector-174@2x.svg"><img class="vector-TU7248" data-id="5:464" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0ae44ef81b78f4ef50f5b/img/vector-175@2x.svg"><img class="vector-inXcLA" data-id="5:465" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0ae44ef81b78f4ef50f5b/img/vector-176@2x.svg"><img class="vector-MhDovC" data-id="5:466" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0ae44ef81b78f4ef50f5b/img/vector-177@2x.svg"><img class="vector-Bm6vYK" data-id="5:467" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0ae44ef81b78f4ef50f5b/img/vector-178@2x.svg"><img class="vector-vcjMfO" data-id="5:468" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0ae44ef81b78f4ef50f5b/img/vector-179@2x.svg"><img class="vector-XsK4k3" data-id="5:469" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0ae44ef81b78f4ef50f5b/img/vector-180@2x.svg"><img class="vector-vlLdna" data-id="5:470" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0ae44ef81b78f4ef50f5b/img/vector-181@2x.svg"><img class="vector-xqgSJE" data-id="5:471" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0ae44ef81b78f4ef50f5b/img/vector-182@2x.svg"><img class="vector-UOOziC" data-id="5:472" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0ae44ef81b78f4ef50f5b/img/vector-183@2x.svg"><img class="vector-FFS5xd" data-id="5:473" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0ae44ef81b78f4ef50f5b/img/vector-184@2x.svg"><img class="vector-oWk8ss" data-id="5:474" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0ae44ef81b78f4ef50f5b/img/vector-185@2x.svg"><img class="vector-NVE6tL" data-id="5:475" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0ae44ef81b78f4ef50f5b/img/vector-186@2x.svg"><img class="vector-pxdBrh" data-id="5:476" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0ae44ef81b78f4ef50f5b/img/vector-187@2x.svg"><img class="vector-qQU8EP" data-id="5:477" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0ae44ef81b78f4ef50f5b/img/vector-188@2x.svg"><img class="vector-PhW1DS" data-id="5:478" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0ae44ef81b78f4ef50f5b/img/vector-189@2x.svg"><img class="vector-KMK6pg" data-id="5:479" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0ae44ef81b78f4ef50f5b/img/vector-190@2x.svg"><img class="vector-N7m3ck" data-id="5:480" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0ae44ef81b78f4ef50f5b/img/vector-191@1x.svg"><img class="vector-ilUbee" data-id="5:481" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0ae44ef81b78f4ef50f5b/img/vector-192@2x.svg"><img class="vector-fvxSqc" data-id="5:482" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0ae44ef81b78f4ef50f5b/img/vector-193@2x.svg"><img class="vector-r3ixoy" data-id="5:483" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0ae44ef81b78f4ef50f5b/img/vector-194@2x.svg"><img class="vector-GWyGEe" data-id="5:484" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0ae44ef81b78f4ef50f5b/img/vector-195@2x.svg"><img class="vector-WmHvbQ" data-id="5:485" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0ae44ef81b78f4ef50f5b/img/vector-196@2x.svg"><img class="vector-xIu1gx" data-id="5:486" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0ae44ef81b78f4ef50f5b/img/vector-197@2x.svg"><img class="vector-jPxRFP" data-id="5:487" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0ae44ef81b78f4ef50f5b/img/vector-198@2x.svg"><img class="vector-cUABpg" data-id="5:488" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0ae44ef81b78f4ef50f5b/img/vector-199@2x.svg"><img class="vector-hDzv9m" data-id="5:489" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0ae44ef81b78f4ef50f5b/img/vector-200@2x.svg"><img class="vector-HAAave" data-id="5:490" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0ae44ef81b78f4ef50f5b/img/vector-201@2x.svg"><img class="vector-iNpSXs" data-id="5:491" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0ae44ef81b78f4ef50f5b/img/vector-202@2x.svg"><img class="vector-tGh90e" data-id="5:492" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0ae44ef81b78f4ef50f5b/img/vector-203@2x.svg"><img class="vector-ShpsLe" data-id="5:493" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0ae44ef81b78f4ef50f5b/img/vector-204@2x.svg"><img class="vector-OHRQhL" data-id="5:494" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0ae44ef81b78f4ef50f5b/img/vector-205@2x.svg"><img class="vector-J1qs06" data-id="5:495" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0ae44ef81b78f4ef50f5b/img/vector-206@2x.svg"><img class="vector-NmYcUW" data-id="5:496" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0ae44ef81b78f4ef50f5b/img/vector-207@2x.svg"><img class="vector-GP7hxC" data-id="5:497" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0ae44ef81b78f4ef50f5b/img/vector-208@2x.svg"><img class="vector-hskrf6" data-id="5:498" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0ae44ef81b78f4ef50f5b/img/vector-209@2x.svg"><img class="vector-Jdn2Fx" data-id="5:499" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0ae44ef81b78f4ef50f5b/img/vector-210@2x.svg"><img class="vector-34Zje6" data-id="5:500" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0ae44ef81b78f4ef50f5b/img/vector-211@2x.svg"><img class="vector-3e95TV" data-id="5:501" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0ae44ef81b78f4ef50f5b/img/vector-212@2x.svg"><img class="vector-b8OQbE" data-id="5:502" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/vector-213@2x.svg"><img class="vector-66Wxmg" data-id="5:503" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0ae44ef81b78f4ef50f5b/img/vector-214@2x.svg"><img class="vector-7raWjO" data-id="5:504" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0ae44ef81b78f4ef50f5b/img/vector-215@2x.svg"><img class="vector-CuNNCH" data-id="5:505" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0ae44ef81b78f4ef50f5b/img/vector-216@2x.svg"><img class="vector-72qHWe" data-id="5:506" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0ae44ef81b78f4ef50f5b/img/vector-217@2x.svg"><img class="vector-krRzAW" data-id="5:507" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0ae44ef81b78f4ef50f5b/img/vector-218@2x.svg"><img class="vector-uFJKB2" data-id="5:508" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0ae44ef81b78f4ef50f5b/img/vector-219@2x.svg"><img class="vector-CuWtsY" data-id="5:509" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0ae44ef81b78f4ef50f5b/img/vector-220@2x.svg"><img class="vector-DG6s0H" data-id="5:510" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0ae44ef81b78f4ef50f5b/img/vector-221@2x.svg"><img class="vector-33ff80" data-id="5:511" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0ae44ef81b78f4ef50f5b/img/vector-222@2x.svg"><img class="vector-ne4bhV" data-id="5:512" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0ae44ef81b78f4ef50f5b/img/vector-223@2x.svg"><img class="vector-XEk3dj" data-id="5:513" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0ae44ef81b78f4ef50f5b/img/vector-224@2x.svg"><img class="vector-convN8" data-id="5:514" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0ae44ef81b78f4ef50f5b/img/vector-225@2x.svg"><img class="vector-DXwYnj" data-id="5:515" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0ae44ef81b78f4ef50f5b/img/vector-226@2x.svg"><img class="vector-uxhlCU" data-id="5:516" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0ae44ef81b78f4ef50f5b/img/vector-227@2x.svg"><img class="vector-IjVMvu" data-id="5:517" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0ae44ef81b78f4ef50f5b/img/vector-228@2x.svg"><img class="vector-NMoxxM" data-id="5:518" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0ae44ef81b78f4ef50f5b/img/vector-229@2x.svg"><img class="vector-HUT6Z7" data-id="5:519" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0ae44ef81b78f4ef50f5b/img/vector-230@2x.svg"><img class="vector-PYS3IC" data-id="5:520" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0ae44ef81b78f4ef50f5b/img/vector-231@2x.svg"><img class="vector-p4NBst" data-id="5:521" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0ae44ef81b78f4ef50f5b/img/vector-232@2x.svg"><img class="vector-JlwfeW" data-id="5:522" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0ae44ef81b78f4ef50f5b/img/vector-233@2x.svg"><img class="vector-nALNsC" data-id="5:523" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0ae44ef81b78f4ef50f5b/img/vector-234@2x.svg"><img class="vector-Xs9RZg" data-id="5:524" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0ae44ef81b78f4ef50f5b/img/vector-235@2x.svg"><img class="vector-bxMFMm" data-id="5:525" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0ae44ef81b78f4ef50f5b/img/vector-236@2x.svg"><img class="vector-4hl7zo" data-id="5:526" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0ae44ef81b78f4ef50f5b/img/vector-237@2x.svg"><img class="vector-TzxBax" data-id="5:527" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0ae44ef81b78f4ef50f5b/img/vector-238@2x.svg"><img class="vector-BIKdXf" data-id="5:528" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0ae44ef81b78f4ef50f5b/img/vector-239@2x.svg"><img class="vector-06zbDa" data-id="5:529" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0ae44ef81b78f4ef50f5b/img/vector-240@2x.svg"></div><img class="vector-C61RwL" data-id="5:265" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e7c064fa84b611974a31/img/vector@2x.svg"><img class="arrow-1-C61RwL" data-id="16:54" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/arrow-1@2x.svg"><div class="no-credit-card-is-free-forever-VMr6Om roboto-normal-gray-20px" data-id="16:55">No credit card required! Our free plan is free forever.</div><div class="product-home-cu-pricing-sign-up-C61RwL roboto-bold-black-20px" data-id="16:63"><span class="span0-J7xMHz roboto-bold-black-20px">PRODUCT<br></span><span class="span1-J7xMHz roboto-normal-black-20px"><br>Home<br>Customers<br>Contact us<br>Blog<br>Pricing<br>Sign Up</span></div><div class="features-schedu-etain-customers-C61RwL roboto-bold-black-20px" data-id="16:64"><span class="span0-luYVSm roboto-bold-black-20px">FEATURES<br><br></span><span class="span1-luYVSm roboto-normal-black-20px">Schedule online<br>Increase productivity<br>Attract customers<br>Retain customers</span></div><div class="support-help-sc-filiate-program-C61RwL roboto-bold-black-20px" data-id="16:65"><span class="span0-uOAW8T roboto-bold-black-20px">SUPPORT<br></span><span class="span1-uOAW8T roboto-normal-black-20px"><br>Help<br>Screen sharing<br>Affiliate Program</span></div><div class="contact-us-appo-rms-of-use-gdpr-C61RwL roboto-bold-black-20px" data-id="16:66"><span class="span0-lTZr40 roboto-bold-black-20px">CONTACT US<br></span><span class="span1-lTZr40 roboto-normal-black-20px"><br>Appointy Software Inc., 16 Corning<br>Ave, Suite 136, Milpitas, CA 95035<br>contact@appointy.com<br>Privacy policy<br>Terms of use<br>GDPR</span></div><div class="connect-with-us-C61RwL" data-id="16:67">CONNECT WITH US</div><div class="rectangle-20-C61RwL border-1px-black" data-id="16:68"></div><div class="rectangle-21-C61RwL border-1px-black" data-id="16:69"></div><div class="rectangle-22-C61RwL border-1px-black" data-id="16:70"></div><div class="rectangle-23-C61RwL" data-id="16:71"></div><div class="copyright-2020-rights-reserved-C61RwL" data-id="16:72">Copyright 2020 © Appointy. All rights reserved.</div><img class="ellipse-1-C61RwL" data-id="16:73" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/ellipse-1@2x.png"><div class="ellipse-2-C61RwL" data-id="16:74"></div><img class="x1-1-C61RwL" data-id="20:2" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/60a083188641b998163a4ef8/releases/60a0e32e5dfda273535b8ce7/img/1-1@2x.png"><div class="all-in-one-educ-business-goals-C61RwL roboto-bold-black-40px" data-id="20:3">All-in-one education scheduling software that helps you&nbsp;&nbsp; <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;achieve all your academic and business goals</div><div class="appointys-educa-he-top-priority-C61RwL" data-id="20:4">Appointy’s education software takes the friction out of your scheduling process and helps you grow your&nbsp;&nbsp;&nbsp;&nbsp; <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; teaching business or institute while keeping students as the top priority</div><div class="connect-with-pr-students-easily-C61RwL roboto-medium-black-22px" data-id="20:5">Connect with prospective<br>students easily</div><div class="give-students-m-ing-convenience-C61RwL roboto-medium-black-22px" data-id="20:6">Give students more booking<br>convenience</div><div class="give-students-m-ing-convenience-VMr6Om roboto-medium-black-22px" data-id="20:7">Give students more booking<br>convenience</div><div class="appointy-handle-student-success-C61RwL roboto-bold-black-40px" data-id="20:8">Appointy handles your everyday admin so that you can <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;focus on increasing student success</div><div class="cost-effective-snt-overwhelmed-C61RwL" data-id="20:9">Cost-effective education booking software that streamlines end-to-end operations, reduces no-shows, and<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ensures that your staff isn’t overwhelmed</div><div class="appointy-integr-you-already-use-C61RwL roboto-bold-black-40px" data-id="20:10">Appointy integrates with the apps you already use</div><div class="education-sched-work-calendars-C61RwL" data-id="20:11">Education scheduling software that integrates with popular payments apps, social media, video conferencing tools, and personal/<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;work calendars</div><div class="custom-online-s-utoring-centers-C61RwL roboto-bold-black-40px" data-id="20:12">Custom online scheduling software to fit the unique needs of<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;universities, schools and tutoring centers</div><div class="we-have-designe-booking-process-C61RwL" data-id="20:13">We have designed tailor made scheduling software solutions for various educational institutes to help streamline their complex<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; booking process</div><div class="x23000-educators-ointy-worldwide-C61RwL roboto-bold-black-40px" data-id="20:25">23,000+ educators and institutes use Appointy worldwide</div><p class="boost-staff-pro-taff-allocation-C61RwL roboto-normal-gray-15px" data-id="20:1534">Boost staff productivity and let<br>them view &amp; manage their own<br>schedules and sick leaves using<br>separate staff logins. Distribute<br>sessions across your team<br>automatically with intelligent<br>staff allocation</p><p class="allow-students-e-cancellations-C61RwL roboto-normal-gray-15px" data-id="20:1535">Allow students to pay for your<br>classes/sessions when they<br>book. Require full/partial fee<br>with our payment integrations<br>with Stripe, Square, and Paypal<br>so that you don&#39;t lose out on<br>ast-minute cancellations</p><p class="keep-a-track-on-your-processes-C61RwL roboto-normal-gray-15px" data-id="20:1536">Keep a track on the number of<br>classes in a week/month, sales, staff<br>utilization, and more. Powerful<br>reporting tools help you spot and<br><br>resolve operational inefficiencies and<br><br>help optimize your processes</p><p class="stay-on-top-of-y-from-the-desk-C61RwL roboto-normal-gray-15px" data-id="20:1537">Stay on top of upcoming<br>appointments and schedule changes<br>with Appointy&#39;s Android &amp; iOS<br>mobile app. You and your staff can<br>manage scheduling, payments, and<br>reminders even when you are away<br>from the desk</p><div class="we-offer-custom-our-brand-image-C61RwL roboto-normal-gray-18px" data-id="20:1538">We offer custom-branded and white<br>labelled solutions that match your<br>brand image</div><div class="appointy-gives-ut-our-business-C61RwL" data-id="20:1539">Appointy gives our students a fast and efficient way to<br>book their sessions. It has completely eliminated missed<br>appointments, human typos, back-and-forth emails and<br>more issues like these for us. We can now control almost<br>every single aspect of the booking process and our admin<br>team has more time available to talk to students and for<br>other tasks. This has improved our customer satisfaction<br>rate. We&#39;ve got so many new students with a positive<br>word of mouth about our business!</div><div class="appointy-has-he-within-seconds-C61RwL" data-id="20:1540">Appointy has helped our appointment system become<br>much easier and less work. We have more accurate data<br>on daily and sales report. And it is easier to track the<br>appointment status. It is very customizable and suits to<br>your company needs. And the customer service is<br>excellent!! Their live chat ready to answer your questions<br>within seconds.</div><div class="appointy-is-sup-chat-and-phone-C61RwL roboto-normal-black-18px" data-id="20:1541">Appointy is supported by a team of dedicated<br>professionals who are always available via email,<br>chat and phone.</div><div class="our-education-s-ed-admin-portal-C61RwL roboto-normal-black-18px" data-id="20:1542">Our education software caters to all types of<br>education institutions. If you have multiple centers<br>and campuses, Appointy allows easy<br>management of all your locations from a<br>centralized admin portal</div><div class="with-a-quick-on-e-of-everything-C61RwL roboto-normal-black-18px" data-id="20:1543">With a quick onboarding and free personalized<br>setup assistance from product experts who have<br>onboarded several educators, you get started with<br>Appointy in no time. Need to shift from your existing<br>system? Just let us know. We take care of<br>everything!</div><div class="we-take-custome-d-data-security-C61RwL roboto-normal-black-18px" data-id="20:1544">We take customer data security very seriously.<br>Your data is safe, backed-up on cloud, and you<br>retain its complete ownership. Our application is<br>hosted on Google Cloud which adheres to the<br>highest standards of reliability and data security.</div></div></div><script src="launchpad-js/launchpad-banner.js" async></script><script defer src="https://animaapp.s3.amazonaws.com/static/restart-btn.min.js"></script></body></html>
